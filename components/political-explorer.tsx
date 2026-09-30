@@ -2,31 +2,37 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
-import type { FeatureCollection } from "geojson";
+import type { Feature, FeatureCollection, Geometry } from "geojson";
 import { partyById } from "@/data/parties";
 import { politicalDataSource } from "@/lib/political-data-source";
 import type { Bounds, Constituency, District, ElectionResult, MLA, StateRegion } from "@/types/political";
 
 type Catalog = { states: StateRegion[]; districts: District[]; constituencies: Constituency[]; representatives: MLA[] };
+type BoundaryCollections = Record<string, { districts: FeatureCollection; constituencies: FeatureCollection }>;
+type BoundaryCatalogFile = {
+  states: Array<{ id: string; bounds: Bounds; districtCount: number; constituencyCount: number }>;
+  districts: District[];
+  constituencies: Constituency[];
+};
 type SearchResult = { id: string; title: string; subtitle: string; kind: "state" | "district" | "constituency" | "mla"; constituencyId?: string };
 type MapTarget = { kind: "state" | "district" | "constituency"; id: string };
 
 const INDIA_BOUNDS: Bounds = [[67.2, 6.2], [97.6, 37.6]];
 const emptyCollection: FeatureCollection = { type: "FeatureCollection", features: [] };
 
-function toFeatureCollection<T extends District | Constituency>(items: T[], kind: "district" | "constituency", representatives: MLA[]): FeatureCollection {
+function withPoliticalOverlay(collection: FeatureCollection, representatives: MLA[]): FeatureCollection {
+  const representativeBySeat = new Map(representatives.map((record) => [record.constituencyId, record]));
   return {
-    type: "FeatureCollection",
-    features: items.map((item) => {
-      const rep = kind === "constituency" ? representatives.find((record) => record.constituencyId === item.id) : undefined;
+    ...collection,
+    features: collection.features.map((feature) => {
+      const id = String(feature.properties?.id ?? feature.id ?? "");
+      const representative = representativeBySeat.get(id);
       return {
-        type: "Feature",
-        id: item.id,
-        properties: { id: item.id, name: item.name, kind, partyColor: rep ? partyById[rep.partyId]?.color : "#6f8295" },
-        geometry: { type: "Polygon", coordinates: item.polygon },
-      };
+        ...feature,
+        properties: { ...feature.properties, partyColor: representative ? partyById[representative.partyId]?.color : "#7d8f9e" },
+      } as Feature<Geometry>;
     }),
-  } as FeatureCollection;
+  };
 }
 
 function fitMap(map: maplibregl.Map, bounds: Bounds, padding = 72) {
@@ -62,6 +68,7 @@ export function PoliticalExplorer() {
   const hoverRef = useRef<{ source: string; id: string | number } | null>(null);
 
   const [catalog, setCatalog] = useState<Catalog>({ states: [], districts: [], constituencies: [], representatives: [] });
+  const [boundaries, setBoundaries] = useState<BoundaryCollections>({});
   const [isLoading, setIsLoading] = useState(true);
   const [mapReady, setMapReady] = useState(false);
   const [selectedStateId, setSelectedStateId] = useState<string | null>(null);
@@ -77,22 +84,37 @@ export function PoliticalExplorer() {
   const selectedDistrict = catalog.districts.find((item) => item.id === selectedDistrictId) ?? null;
   const selectedConstituency = catalog.constituencies.find((item) => item.id === selectedConstituencyId) ?? null;
   const selectedRepresentative = catalog.representatives.find((item) => item.constituencyId === selectedConstituencyId) ?? null;
-  const stateDistricts = catalog.districts.filter((item) => item.stateId === selectedStateId);
-  const districtConstituencies = catalog.constituencies.filter((item) => item.districtId === selectedDistrictId);
+  const stateDistricts = useMemo(() => catalog.districts.filter((item) => item.stateId === selectedStateId), [catalog.districts, selectedStateId]);
+  const districtConstituencies = useMemo(() => catalog.constituencies.filter((item) => item.districtId === selectedDistrictId), [catalog.constituencies, selectedDistrictId]);
 
   useEffect(() => {
     let active = true;
     async function loadCatalog() {
-      const states = await politicalDataSource.getStates();
-      const districtGroups = await Promise.all(states.map((state) => politicalDataSource.getDistricts(state.id)));
-      const districts = districtGroups.flat();
-      const constituencyGroups = await Promise.all(districts.map((district) => politicalDataSource.getConstituencies(district.id)));
-      const constituencies = constituencyGroups.flat();
+      const [politicalStates, boundaryCatalog, karnatakaDistricts, karnatakaConstituencies, telanganaDistricts, telanganaConstituencies] = await Promise.all([
+        politicalDataSource.getStates(),
+        fetch("/boundaries/catalog.json").then((response) => response.json()) as Promise<BoundaryCatalogFile>,
+        fetch("/boundaries/karnataka-districts.geojson").then((response) => response.json()) as Promise<FeatureCollection>,
+        fetch("/boundaries/karnataka-constituencies.geojson").then((response) => response.json()) as Promise<FeatureCollection>,
+        fetch("/boundaries/telangana-districts.geojson").then((response) => response.json()) as Promise<FeatureCollection>,
+        fetch("/boundaries/telangana-constituencies.geojson").then((response) => response.json()) as Promise<FeatureCollection>,
+      ]);
+      const geographyByState = new Map(boundaryCatalog.states.map((state) => [state.id, state]));
+      const states = politicalStates.map((state) => {
+        const geography = geographyByState.get(state.id);
+        return geography ? { ...state, bounds: geography.bounds, districtCount: geography.districtCount, constituencyCount: geography.constituencyCount } : state;
+      });
+      const districts = boundaryCatalog.districts;
+      const constituencies = boundaryCatalog.constituencies;
       const representatives = (await Promise.all(constituencies.map((item) => politicalDataSource.getMLA(item.id)))).filter((item): item is MLA => Boolean(item));
       if (active) {
         const next = { states, districts, constituencies, representatives };
+        const nextBoundaries = {
+          ka: { districts: karnatakaDistricts, constituencies: karnatakaConstituencies },
+          tg: { districts: telanganaDistricts, constituencies: telanganaConstituencies },
+        };
         catalogRef.current = next;
         setCatalog(next);
+        setBoundaries(nextBoundaries);
         setIsLoading(false);
       }
     }
@@ -159,7 +181,7 @@ export function PoliticalExplorer() {
     });
     mapRef.current = map;
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
-    map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: "Demo political data · Boundaries for navigation" }), "bottom-right");
+    map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: "Boundaries: LGD / BharatMaps · Political data: illustrative" }), "bottom-right");
 
     map.on("load", async () => {
       const response = await fetch("/india-states.geojson");
@@ -180,6 +202,8 @@ export function PoliticalExplorer() {
       const visibleLayers = ["constituency-fill", "district-fill", "state-fill"].filter((id) => map.getLayer(id) && map.getLayoutProperty(id, "visibility") !== "none");
       const feature = map.queryRenderedFeatures(event.point, { layers: visibleLayers })[0];
       if (!feature?.id) {
+        if (hoverRef.current) map.setFeatureState(hoverRef.current, { hover: false });
+        hoverRef.current = null;
         map.getCanvas().style.cursor = "";
         return;
       }
@@ -234,7 +258,8 @@ export function PoliticalExplorer() {
     }
     map.setPaintProperty("state-fill", "fill-color", ["case", ["boolean", ["feature-state", "hover"], false], "#7eb6ad", ["==", ["get", "name"], selectedState.mapName], "#dcece8", "#f6f8f9"]);
     map.setPaintProperty("state-fill", "fill-opacity", ["case", ["==", ["get", "name"], selectedState.mapName], .95, .22]);
-    districtSource.setData(toFeatureCollection(stateDistricts, "district", catalog.representatives));
+    const stateBoundaries = boundaries[selectedState.id];
+    districtSource.setData(stateBoundaries?.districts ?? emptyCollection);
     constituencySource.setData(emptyCollection);
     const districtVisibility = stateDistricts.length ? "visible" : "none";
     map.setLayoutProperty("district-fill", "visibility", districtVisibility);
@@ -242,18 +267,23 @@ export function PoliticalExplorer() {
     map.setLayoutProperty("constituency-fill", "visibility", "none");
     map.setLayoutProperty("constituency-line", "visibility", "none");
     fitMap(map, selectedState.bounds, 76);
-  }, [mapReady, selectedState, stateDistricts, catalog.representatives]);
+  }, [mapReady, selectedState, stateDistricts, boundaries]);
 
   useEffect(() => {
     const map = mapRef.current;
     if (!map || !mapReady || !selectedDistrict) return;
     const source = map.getSource("constituencies") as maplibregl.GeoJSONSource;
-    source.setData(toFeatureCollection(districtConstituencies, "constituency", catalog.representatives));
+    const stateCollection = boundaries[selectedDistrict.stateId]?.constituencies ?? emptyCollection;
+    const districtCollection: FeatureCollection = {
+      type: "FeatureCollection",
+      features: stateCollection.features.filter((feature) => String(feature.properties?.districtId) === selectedDistrict.id),
+    };
+    source.setData(withPoliticalOverlay(districtCollection, catalog.representatives));
     map.setLayoutProperty("constituency-fill", "visibility", "visible");
     map.setLayoutProperty("constituency-line", "visibility", "visible");
     map.setPaintProperty("district-fill", "fill-opacity", ["case", ["==", ["get", "id"], selectedDistrict.id], .45, .12]);
     fitMap(map, selectedDistrict.bounds, 96);
-  }, [mapReady, selectedDistrict, districtConstituencies, catalog.representatives]);
+  }, [mapReady, selectedDistrict, districtConstituencies, catalog.representatives, boundaries]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -299,9 +329,9 @@ export function PoliticalExplorer() {
           <Icon name="search" />
           <input className="search-input" value={query} onChange={(event) => { setQuery(event.target.value); setSearchOpen(true); }} onFocus={() => setSearchOpen(true)} aria-label="Search political regions and representatives" placeholder="Search state, district, constituency or MLA…" />
           {query && <button className="search-clear" type="button" onClick={() => setQuery("")} aria-label="Clear search"><Icon name="close" /></button>}
-          {searchOpen && query.length >= 2 && <div className="search-results" role="listbox">{searchResults.length ? searchResults.map((result) => <button key={`${result.kind}-${result.id}`} type="button" onClick={() => chooseSearchResult(result)}><span><strong>{result.title}</strong><small>{result.subtitle}</small></span><em>{result.kind === "mla" ? "MLA" : result.kind[0].toUpperCase()}</em></button>) : <div className="search-empty">No demo records match “{query}”.</div>}</div>}
+          {searchOpen && query.length >= 2 && <div className="search-results" role="listbox">{searchResults.length ? searchResults.map((result) => <button key={`${result.kind}-${result.id}`} type="button" onClick={() => chooseSearchResult(result)}><span><strong>{result.title}</strong><small>{result.subtitle}</small></span><em>{result.kind === "mla" ? "MLA" : result.kind[0].toUpperCase()}</em></button>) : <div className="search-empty">No mapped region matches “{query}”.</div>}</div>}
         </div>
-        <span className="demo-pill">Demo dataset</span>
+        <span className="demo-pill">Verified boundaries</span>
       </header>
 
       <main className="workspace">
@@ -316,7 +346,7 @@ export function PoliticalExplorer() {
         </section>
 
         <aside className={`info-panel ${selectedConstituency ? "detail-panel" : ""}`} aria-live="polite">
-          {isLoading ? <PanelSkeleton /> : selectedConstituency && selectedState && selectedDistrict && selectedRepresentative ? <ConstituencyPanel constituency={selectedConstituency} district={selectedDistrict} state={selectedState} representative={selectedRepresentative} history={history} /> : selectedDistrict && selectedState ? <DistrictPanel district={selectedDistrict} state={selectedState} constituencies={districtConstituencies} representatives={catalog.representatives} onSelect={navigateToConstituency} /> : selectedState ? <StatePanel state={selectedState} districts={stateDistricts} onSelect={navigateToDistrict} hoveredParty={hoveredParty} setHoveredParty={setHoveredParty} /> : <OverviewPanel states={catalog.states} onSelect={navigateToState} />}
+          {isLoading ? <PanelSkeleton /> : selectedConstituency && selectedState && selectedDistrict ? <ConstituencyPanel constituency={selectedConstituency} district={selectedDistrict} state={selectedState} representative={selectedRepresentative} history={history} /> : selectedDistrict && selectedState ? <DistrictPanel district={selectedDistrict} state={selectedState} constituencies={districtConstituencies} representatives={catalog.representatives} onSelect={navigateToConstituency} /> : selectedState ? <StatePanel state={selectedState} districts={stateDistricts} onSelect={navigateToDistrict} hoveredParty={hoveredParty} setHoveredParty={setHoveredParty} /> : <OverviewPanel states={catalog.states} onSelect={navigateToState} />}
         </aside>
       </main>
     </div></div>
@@ -324,27 +354,27 @@ export function PoliticalExplorer() {
 }
 
 function OverviewPanel({ states, onSelect }: { states: StateRegion[]; onSelect: (state: StateRegion) => void }) {
-  return <><div className="panel-scroll"><div className="kicker">National overview</div><h1 className="panel-title">India</h1><p className="panel-copy">Follow the map from a state to a constituency, then see the current representative and latest election result.</p><div className="metric-grid"><div className="metric"><strong>36</strong><span>States & union territories</span></div><div className="metric"><strong>2</strong><span>Full demo states</span></div></div><div className="section-rule" /><h2 className="mini-heading">Begin with a state</h2><div className="state-list">{states.map((state) => <button className="state-button" type="button" key={state.id} onClick={() => onSelect(state)}><span><strong>{state.name}</strong><small>{state.demoCoverage === "complete" ? `${state.districtCount} districts` : "Overview only"}</small></span><em>{state.constituencyCount}</em></button>)}</div></div><DemoNote /> </>;
+  return <><div className="panel-scroll"><div className="kicker">National overview</div><h1 className="panel-title">India</h1><p className="panel-copy">Follow the map from a state to its real district and Assembly constituency boundaries.</p><div className="metric-grid"><div className="metric"><strong>64</strong><span>Mapped districts</span></div><div className="metric"><strong>343</strong><span>Mapped constituencies</span></div></div><div className="section-rule" /><h2 className="mini-heading">Begin with a state</h2><div className="state-list">{states.map((state) => <button className="state-button" type="button" key={state.id} onClick={() => onSelect(state)}><span><strong>{state.name}</strong><small>{state.demoCoverage === "complete" ? `${state.districtCount} verified districts` : "Overview only"}</small></span><em>{state.constituencyCount}</em></button>)}</div></div><DemoNote /> </>;
 }
 
 function StatePanel({ state, districts, onSelect, hoveredParty, setHoveredParty }: { state: StateRegion; districts: District[]; onSelect: (district: District) => void; hoveredParty: string | null; setHoveredParty: (id: string | null) => void }) {
   const composition = Object.entries(state.partySeats).sort((a, b) => b[1] - a[1]);
-  return <><div className="panel-scroll"><div className="kicker">State overview</div><h1 className="panel-title">{state.name}</h1><div className="metric-grid three"><div className="metric"><strong>{state.constituencyCount}</strong><span>Constituencies</span></div><div className="metric"><strong>{state.districtCount}</strong><span>Districts</span></div><div className="metric"><strong>{composition.length || "—"}</strong><span>Parties shown</span></div></div>{state.demoCoverage === "overview" ? <div className="empty-card"><Icon name="map" /><h2>Overview only</h2><p>Detailed demo districts are available for Karnataka and Telangana.</p></div> : <><section className="panel-section"><div className="section-heading"><div><span>Party representation</span><h2>Assembly composition</h2></div><small>{state.constituencyCount} seats</small></div><div className="assembly-dots" aria-label={`Sample assembly composition for ${state.name}`}>{composition.flatMap(([partyId, count]) => Array.from({ length: count }, (_, index) => <span key={`${partyId}-${index}`} style={{ backgroundColor: partyById[partyId]?.color }} className={hoveredParty && hoveredParty !== partyId ? "muted-dot" : ""} title={`${partyById[partyId]?.abbreviation} seat`} />))}</div><div className="party-list">{composition.map(([partyId, count]) => { const party = partyById[partyId]; return <button key={partyId} type="button" onMouseEnter={() => setHoveredParty(partyId)} onMouseLeave={() => setHoveredParty(null)} onFocus={() => setHoveredParty(partyId)} onBlur={() => setHoveredParty(null)}><i style={{ backgroundColor: party.color }} /><span><strong>{party.abbreviation}</strong><small>{party.name}</small></span><em>{count}</em></button>; })}</div></section><section className="panel-section"><div className="section-heading"><div><span>Demo geography</span><h2>Choose a district</h2></div><small>{districts.length} shown</small></div><div className="district-list">{districts.map((district) => <button type="button" key={district.id} onClick={() => onSelect(district)}><span><strong>{district.name}</strong><small>{district.constituencyCount} constituencies</small></span><b>View</b></button>)}</div></section></>}</div><DemoNote /></>;
+  return <><div className="panel-scroll"><div className="kicker">State overview</div><h1 className="panel-title">{state.name}</h1><div className="metric-grid three"><div className="metric"><strong>{state.constituencyCount}</strong><span>Constituencies</span></div><div className="metric"><strong>{state.districtCount}</strong><span>Districts</span></div><div className="metric"><strong>{composition.length || "—"}</strong><span>Parties shown</span></div></div>{state.demoCoverage === "overview" ? <div className="empty-card"><Icon name="map" /><h2>Overview only</h2><p>Complete district and Assembly maps are available for Karnataka and Telangana.</p></div> : <><section className="panel-section"><div className="section-heading"><div><span>Party representation</span><h2>Assembly composition</h2></div><small>{state.constituencyCount} seats</small></div><div className="assembly-dots" aria-label={`Sample assembly composition for ${state.name}`}>{composition.flatMap(([partyId, count]) => Array.from({ length: count }, (_, index) => <span key={`${partyId}-${index}`} style={{ backgroundColor: partyById[partyId]?.color }} className={hoveredParty && hoveredParty !== partyId ? "muted-dot" : ""} title={`${partyById[partyId]?.abbreviation} seat`} />))}</div><div className="party-list">{composition.map(([partyId, count]) => { const party = partyById[partyId]; return <button key={partyId} type="button" onMouseEnter={() => setHoveredParty(partyId)} onMouseLeave={() => setHoveredParty(null)} onFocus={() => setHoveredParty(partyId)} onBlur={() => setHoveredParty(null)}><i style={{ backgroundColor: party.color }} /><span><strong>{party.abbreviation}</strong><small>{party.name}</small></span><em>{count}</em></button>; })}</div></section><section className="panel-section"><div className="section-heading"><div><span>LGD geography</span><h2>Choose a district</h2></div><small>{districts.length} mapped</small></div><div className="district-list">{districts.map((district) => <button type="button" key={district.id} onClick={() => onSelect(district)}><span><strong>{district.name}</strong><small>{district.constituencyCount} constituencies</small></span><b>View</b></button>)}</div></section></>}</div><DemoNote /></>;
 }
 
 function DistrictPanel({ district, state, constituencies, representatives, onSelect }: { district: District; state: StateRegion; constituencies: Constituency[]; representatives: MLA[]; onSelect: (item: Constituency) => void }) {
-  return <><div className="panel-scroll"><div className="kicker">District · {state.name}</div><h1 className="panel-title">{district.name}</h1><p className="panel-copy">Select a highlighted constituency to see its representative and election history.</p><div className="section-rule" /><div className="section-heading"><div><span>Assembly areas</span><h2>Constituencies</h2></div><small>{constituencies.length} demo records</small></div><div className="constituency-list">{constituencies.map((item) => { const rep = representatives.find((record) => record.constituencyId === item.id); const party = rep ? partyById[rep.partyId] : null; return <button type="button" key={item.id} onClick={() => onSelect(item)}><span className="constituency-number">AC {item.constituencyNumber}</span><strong>{item.name}</strong>{rep && party ? <span className="rep-line"><i style={{ backgroundColor: party.color }} />{rep.name}<em>{party.abbreviation}</em></span> : <small>No representative record</small>}</button>; })}</div></div><DemoNote /></>;
+  return <><div className="panel-scroll"><div className="kicker">District · {state.name}</div><h1 className="panel-title">{district.name}</h1><p className="panel-copy">Select an Assembly constituency to inspect its exact mapped boundary.</p><div className="section-rule" /><div className="section-heading"><div><span>Assembly areas</span><h2>Constituencies</h2></div><small>{constituencies.length} mapped</small></div><div className="constituency-list">{constituencies.map((item) => { const rep = representatives.find((record) => record.constituencyId === item.id); const party = rep ? partyById[rep.partyId] : null; return <button type="button" key={item.id} onClick={() => onSelect(item)}><span className="constituency-number">AC {item.constituencyNumber}</span><strong>{item.name}</strong>{rep && party ? <span className="rep-line"><i style={{ backgroundColor: party.color }} />{rep.name}<em>{party.abbreviation}</em></span> : <small>Boundary record available</small>}</button>; })}</div></div><DemoNote /></>;
 }
 
-function ConstituencyPanel({ constituency, district, state, representative, history }: { constituency: Constituency; district: District; state: StateRegion; representative: MLA; history: ElectionResult[] }) {
+function ConstituencyPanel({ constituency, district, state, representative, history }: { constituency: Constituency; district: District; state: StateRegion; representative: MLA | null; history: ElectionResult[] }) {
   const [expanded, setExpanded] = useState(false);
-  const party = partyById[representative.partyId];
+  const party = representative ? partyById[representative.partyId] : null;
   const latest = history.at(-1);
   const latestWinner = latest?.candidates.find((candidate) => candidate.position === 1);
   useEffect(() => setExpanded(false), [constituency.id]);
-  return <><div className="panel-scroll"><div className="kicker">Assembly constituency</div><h1 className="panel-title constituency-title">{constituency.name}</h1><p className="location-line">{district.name}<span>•</span>{state.name}</p><section className="mla-card"><div className="profile-avatar" style={{ backgroundColor: `${party.color}22`, color: party.color }}>{initials(representative.name)}</div><div><span>Current MLA</span><h2>{representative.name}</h2><p><i style={{ backgroundColor: party.color }} />{party.name}</p></div></section><div className="stat-strip"><div><Icon name="people" /><strong>{representative.currentTermStart}</strong><span>MLA since</span></div><div><Icon name="vote" /><strong>{representative.consecutiveWins}</strong><span>Consecutive wins</span></div><div><Icon name="map" /><strong>{latestWinner?.votePercentage ?? "—"}{latestWinner ? "%" : ""}</strong><span>{latest?.year ?? "Latest"} vote share</span></div><div><Icon name="vote" /><strong>{latest ? formatNumber(latest.winningMargin) : "—"}</strong><span>Winning margin</span></div></div><section className="panel-section timeline-section"><div className="section-heading"><div><span>Election history</span><h2>Winning timeline</h2></div></div><div className="timeline">{history.map((election) => { const winner = election.candidates.find((candidate) => candidate.position === 1); const winnerParty = winner ? partyById[winner.partyId] : null; return <div key={election.year}><span>{election.year}</span><i style={{ backgroundColor: winnerParty?.color }} /><strong>{winnerParty?.abbreviation}</strong></div>; })}</div></section><section className="panel-section"><div className="section-heading"><div><span>Latest result</span><h2>{latest?.year ?? "—"} election</h2></div>{latest && <small>Margin {formatNumber(latest.winningMargin)}</small>}</div><div className="result-bars">{latest?.candidates.slice(0, expanded ? undefined : 2).map((candidate) => { const candidateParty = partyById[candidate.partyId]; return <div key={candidate.candidateId} className="result-row"><div><span><strong>{candidate.candidateName}</strong><small>{candidateParty?.abbreviation}</small></span><em>{candidate.votePercentage}%</em></div><span className="bar-track"><i style={{ width: `${candidate.votePercentage}%`, backgroundColor: candidateParty?.color }} /></span><small>{formatNumber(candidate.votes)} votes</small></div>; })}</div>{latest && latest.candidates.length > 2 && <button type="button" className="expand-button" onClick={() => setExpanded((value) => !value)}>{expanded ? "Show leading candidates" : `Show all ${latest.candidates.length} entries`}</button>}</section></div><DemoNote /></>;
+  return <><div className="panel-scroll"><div className="kicker">Assembly constituency · AC {constituency.constituencyNumber}</div><h1 className="panel-title constituency-title">{constituency.name}</h1><p className="location-line">{district.name}<span>•</span>{state.name}</p>{representative && party ? <><section className="mla-card"><div className="profile-avatar" style={{ backgroundColor: `${party.color}22`, color: party.color }}>{initials(representative.name)}</div><div><span>Sample MLA</span><h2>{representative.name}</h2><p><i style={{ backgroundColor: party.color }} />{party.name}</p></div></section><div className="stat-strip"><div><Icon name="people" /><strong>{representative.currentTermStart}</strong><span>MLA since</span></div><div><Icon name="vote" /><strong>{representative.consecutiveWins}</strong><span>Consecutive wins</span></div><div><Icon name="map" /><strong>{latestWinner?.votePercentage ?? "—"}{latestWinner ? "%" : ""}</strong><span>{latest?.year ?? "Latest"} vote share</span></div><div><Icon name="vote" /><strong>{latest ? formatNumber(latest.winningMargin) : "—"}</strong><span>Winning margin</span></div></div><section className="panel-section timeline-section"><div className="section-heading"><div><span>Election history</span><h2>Winning timeline</h2></div></div><div className="timeline">{history.map((election) => { const winner = election.candidates.find((candidate) => candidate.position === 1); const winnerParty = winner ? partyById[winner.partyId] : null; return <div key={election.year}><span>{election.year}</span><i style={{ backgroundColor: winnerParty?.color }} /><strong>{winnerParty?.abbreviation}</strong></div>; })}</div></section><section className="panel-section"><div className="section-heading"><div><span>Latest result</span><h2>{latest?.year ?? "—"} election</h2></div>{latest && <small>Margin {formatNumber(latest.winningMargin)}</small>}</div><div className="result-bars">{latest?.candidates.slice(0, expanded ? undefined : 2).map((candidate) => { const candidateParty = partyById[candidate.partyId]; return <div key={candidate.candidateId} className="result-row"><div><span><strong>{candidate.candidateName}</strong><small>{candidateParty?.abbreviation}</small></span><em>{candidate.votePercentage}%</em></div><span className="bar-track"><i style={{ width: `${candidate.votePercentage}%`, backgroundColor: candidateParty?.color }} /></span><small>{formatNumber(candidate.votes)} votes</small></div>; })}</div>{latest && latest.candidates.length > 2 && <button type="button" className="expand-button" onClick={() => setExpanded((value) => !value)}>{expanded ? "Show leading candidates" : `Show all ${latest.candidates.length} entries`}</button>}</section></> : <div className="empty-card"><Icon name="map" /><h2>Boundary mapped</h2><p>This constituency is part of the complete geographic dataset. Representative and election details have not been added to the illustrative political sample.</p></div>}</div><DemoNote /></>;
 }
 
-function DemoNote() { return <p className="sample-note"><strong>Sample data</strong><span>Names, totals and results are illustrative and not verified political records.</span></p>; }
+function DemoNote() { return <p className="sample-note"><strong>Data note</strong><span>Boundaries: LGD/BharatMaps 2023 release. Parties, representatives and results remain illustrative.</span></p>; }
 
 function PanelSkeleton() { return <div className="panel-skeleton" aria-label="Loading political data"><span className="sk-line short"/><span className="sk-line title"/><span className="sk-line"/><div className="sk-grid"><span/><span/></div><span className="sk-line"/><span className="sk-line"/></div>; }

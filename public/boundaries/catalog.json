@@ -1,0 +1,7033 @@
+{
+  "generatedAt": "2026-09-30T18:33:27.792Z",
+  "source": {
+    "districtRelease": "LGD_Districts.geojsonl.7z (2023-12-11)",
+    "constituencyRelease": "LGD_Assembly_Constituencies.geojsonl.7z (2023-12-12)",
+    "districtService": "https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/Admin_Boundary_Village/MapServer/1",
+    "constituencyService": "https://mapservice.gov.in/gismapservice/rest/services/BharatMapService/AC_PC/MapServer/2",
+    "license": "CC0-1.0 with source attribution requested"
+  },
+  "states": [
+    {
+      "id": "ka",
+      "name": "Karnataka",
+      "slug": "karnataka",
+      "bounds": [
+        [
+          74.0539934,
+          11.5944715
+        ],
+        [
+          78.5877023,
+          18.4777265
+        ]
+      ],
+      "districtCount": 31,
+      "constituencyCount": 224
+    },
+    {
+      "id": "tg",
+      "name": "Telangana",
+      "slug": "telangana",
+      "bounds": [
+        [
+          77.235761,
+          15.8360033
+        ],
+        [
+          81.3226374,
+          19.916807
+        ]
+      ],
+      "districtCount": 33,
+      "constituencyCount": 119
+    }
+  ],
+  "districts": [
+    {
+      "id": "ka-district-524",
+      "stateId": "ka",
+      "name": "Bagalkote",
+      "slug": "bagalkote",
+      "lgdCode": 524,
+      "constituencyCount": 7,
+      "bounds": [
+        [
+          74.9862697,
+          15.8127324
+        ],
+        [
+          76.3322759,
+          16.768133
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-528",
+      "stateId": "ka",
+      "name": "Ballari",
+      "slug": "ballari",
+      "lgdCode": 528,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          76.3614188,
+          14.8586397
+        ],
+        [
+          77.1691336,
+          15.8375092
+        ]
+      ]
+    },
+    {
+      "id": "ka-belagavi",
+      "stateId": "ka",
+      "name": "Belagavi",
+      "slug": "belagavi",
+      "lgdCode": 527,
+      "constituencyCount": 18,
+      "bounds": [
+        [
+          74.0880625,
+          15.3584588
+        ],
+        [
+          75.4578328,
+          16.9569548
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-526",
+      "stateId": "ka",
+      "name": "Bengaluru Rural",
+      "slug": "bengaluru-rural",
+      "lgdCode": 526,
+      "constituencyCount": 4,
+      "bounds": [
+        [
+          77.1826567,
+          12.8661104
+        ],
+        [
+          77.9649866,
+          13.4990683
+        ]
+      ]
+    },
+    {
+      "id": "ka-bengaluru",
+      "stateId": "ka",
+      "name": "Bengaluru Urban",
+      "slug": "bengaluru-urban",
+      "lgdCode": 525,
+      "constituencyCount": 28,
+      "bounds": [
+        [
+          77.3256128,
+          12.6574395
+        ],
+        [
+          77.8360272,
+          13.2330371
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-529",
+      "stateId": "ka",
+      "name": "Bidar",
+      "slug": "bidar",
+      "lgdCode": 529,
+      "constituencyCount": 6,
+      "bounds": [
+        [
+          76.690669,
+          17.5830795
+        ],
+        [
+          77.6558552,
+          18.4777265
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-531",
+      "stateId": "ka",
+      "name": "Chamarajanagara",
+      "slug": "chamarajanagara",
+      "lgdCode": 531,
+      "constituencyCount": 4,
+      "bounds": [
+        [
+          76.4033752,
+          11.5944715
+        ],
+        [
+          77.776722,
+          12.3141342
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-630",
+      "stateId": "ka",
+      "name": "Chikkaballapura",
+      "slug": "chikkaballapura",
+      "lgdCode": 630,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          77.3598965,
+          13.2195013
+        ],
+        [
+          78.210386,
+          13.960188
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-532",
+      "stateId": "ka",
+      "name": "Chikkamagaluru",
+      "slug": "chikkamagaluru",
+      "lgdCode": 532,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          75.0785253,
+          12.9128001
+        ],
+        [
+          76.3638653,
+          13.8993959
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-533",
+      "stateId": "ka",
+      "name": "Chitradurga",
+      "slug": "chitradurga",
+      "lgdCode": 533,
+      "constituencyCount": 6,
+      "bounds": [
+        [
+          76.0249578,
+          13.5759715
+        ],
+        [
+          77.0238435,
+          15.0359991
+        ]
+      ]
+    },
+    {
+      "id": "ka-dakshina-kannada",
+      "stateId": "ka",
+      "name": "Dakshina Kannada",
+      "slug": "dakshina-kannada",
+      "lgdCode": 534,
+      "constituencyCount": 8,
+      "bounds": [
+        [
+          74.776332,
+          12.460086
+        ],
+        [
+          75.6706418,
+          13.1851626
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-535",
+      "stateId": "ka",
+      "name": "Davangere",
+      "slug": "davangere",
+      "lgdCode": 535,
+      "constituencyCount": 7,
+      "bounds": [
+        [
+          75.3987931,
+          13.8062066
+        ],
+        [
+          76.5336333,
+          14.7053394
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-536",
+      "stateId": "ka",
+      "name": "Dharwad",
+      "slug": "dharwad",
+      "lgdCode": 536,
+      "constituencyCount": 7,
+      "bounds": [
+        [
+          74.7271305,
+          15.0386945
+        ],
+        [
+          75.5543658,
+          15.7025376
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-537",
+      "stateId": "ka",
+      "name": "Gadag",
+      "slug": "gadag",
+      "lgdCode": 537,
+      "constituencyCount": 4,
+      "bounds": [
+        [
+          75.2736218,
+          14.94401
+        ],
+        [
+          76.0450595,
+          15.886972
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-539",
+      "stateId": "ka",
+      "name": "Hassan",
+      "slug": "hassan",
+      "lgdCode": 539,
+      "constituencyCount": 7,
+      "bounds": [
+        [
+          75.554503,
+          12.5124371
+        ],
+        [
+          76.6337591,
+          13.547941
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-540",
+      "stateId": "ka",
+      "name": "Haveri",
+      "slug": "haveri",
+      "lgdCode": 540,
+      "constituencyCount": 6,
+      "bounds": [
+        [
+          75.0151274,
+          14.2742413
+        ],
+        [
+          75.82025,
+          15.1617738
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-538",
+      "stateId": "ka",
+      "name": "Kalaburagi",
+      "slug": "kalaburagi",
+      "lgdCode": 538,
+      "constituencyCount": 9,
+      "bounds": [
+        [
+          76.0649862,
+          16.7105235
+        ],
+        [
+          77.6925187,
+          17.7708537
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-541",
+      "stateId": "ka",
+      "name": "Kodagu",
+      "slug": "kodagu",
+      "lgdCode": 541,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          75.3656304,
+          11.9313917
+        ],
+        [
+          76.1892617,
+          12.8342368
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-542",
+      "stateId": "ka",
+      "name": "Kolar",
+      "slug": "kolar",
+      "lgdCode": 542,
+      "constituencyCount": 6,
+      "bounds": [
+        [
+          77.8395431,
+          12.7606586
+        ],
+        [
+          78.5877023,
+          13.5985979
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-543",
+      "stateId": "ka",
+      "name": "Koppal",
+      "slug": "koppal",
+      "lgdCode": 543,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          75.7735264,
+          15.1376588
+        ],
+        [
+          76.8126175,
+          16.0118145
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-544",
+      "stateId": "ka",
+      "name": "Mandya",
+      "slug": "mandya",
+      "lgdCode": 544,
+      "constituencyCount": 7,
+      "bounds": [
+        [
+          76.3295647,
+          12.2179124
+        ],
+        [
+          77.3338035,
+          13.0553354
+        ]
+      ]
+    },
+    {
+      "id": "ka-mysuru",
+      "stateId": "ka",
+      "name": "Mysuru",
+      "slug": "mysuru",
+      "lgdCode": 545,
+      "constituencyCount": 11,
+      "bounds": [
+        [
+          75.9086798,
+          11.7381878
+        ],
+        [
+          77.134284,
+          12.6556829
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-546",
+      "stateId": "ka",
+      "name": "Raichur",
+      "slug": "raichur",
+      "lgdCode": 546,
+      "constituencyCount": 7,
+      "bounds": [
+        [
+          76.2341617,
+          15.5474362
+        ],
+        [
+          77.5978097,
+          16.5620451
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-631",
+      "stateId": "ka",
+      "name": "Ramanagara",
+      "slug": "ramanagara",
+      "lgdCode": 631,
+      "constituencyCount": 4,
+      "bounds": [
+        [
+          77.0680638,
+          12.2432313
+        ],
+        [
+          77.6348048,
+          13.1969723
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-547",
+      "stateId": "ka",
+      "name": "Shivamogga",
+      "slug": "shivamogga",
+      "lgdCode": 547,
+      "constituencyCount": 7,
+      "bounds": [
+        [
+          74.6252159,
+          13.4568025
+        ],
+        [
+          75.8787561,
+          14.6551484
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-548",
+      "stateId": "ka",
+      "name": "Tumakuru",
+      "slug": "tumakuru",
+      "lgdCode": 548,
+      "constituencyCount": 11,
+      "bounds": [
+        [
+          76.3462278,
+          12.7455385
+        ],
+        [
+          77.5170719,
+          14.3421653
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-549",
+      "stateId": "ka",
+      "name": "Udupi",
+      "slug": "udupi",
+      "lgdCode": 549,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          74.5819858,
+          13.0715218
+        ],
+        [
+          75.2057992,
+          13.9821515
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-550",
+      "stateId": "ka",
+      "name": "Uttara Kannada",
+      "slug": "uttara-kannada",
+      "lgdCode": 550,
+      "constituencyCount": 6,
+      "bounds": [
+        [
+          74.0539934,
+          13.9252421
+        ],
+        [
+          75.1029206,
+          15.5249608
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-738",
+      "stateId": "ka",
+      "name": "Vijayanagar",
+      "slug": "vijayanagar",
+      "lgdCode": 738,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          75.6635721,
+          14.5057067
+        ],
+        [
+          76.7423985,
+          15.3811062
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-530",
+      "stateId": "ka",
+      "name": "Vijayapura",
+      "slug": "vijayapura",
+      "lgdCode": 530,
+      "constituencyCount": 8,
+      "bounds": [
+        [
+          75.3338017,
+          16.1514032
+        ],
+        [
+          76.4709774,
+          17.4772144
+        ]
+      ]
+    },
+    {
+      "id": "ka-district-635",
+      "stateId": "ka",
+      "name": "Yadgir",
+      "slug": "yadgir",
+      "lgdCode": 635,
+      "constituencyCount": 4,
+      "bounds": [
+        [
+          76.2913489,
+          16.1937602
+        ],
+        [
+          77.476494,
+          16.9539887
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-501",
+      "stateId": "tg",
+      "name": "Adilabad",
+      "slug": "adilabad",
+      "lgdCode": 501,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          78.1717295,
+          19.172403
+        ],
+        [
+          78.9775655,
+          19.916807
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-690",
+      "stateId": "tg",
+      "name": "Bhadradri Kothagudem",
+      "slug": "bhadradri-kothagudem",
+      "lgdCode": 690,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          80.2018988,
+          17.1903299
+        ],
+        [
+          81.3226374,
+          18.2389198
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-686",
+      "stateId": "tg",
+      "name": "Hanumakonda",
+      "slug": "hanumakonda",
+      "lgdCode": 686,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          79.2286529,
+          17.7866026
+        ],
+        [
+          79.8419969,
+          18.285261
+        ]
+      ]
+    },
+    {
+      "id": "tg-hyderabad",
+      "stateId": "tg",
+      "name": "Hyderabad",
+      "slug": "hyderabad",
+      "lgdCode": 507,
+      "constituencyCount": 15,
+      "bounds": [
+        [
+          78.3675295,
+          17.2975193
+        ],
+        [
+          78.5489825,
+          17.4830218
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-681",
+      "stateId": "tg",
+      "name": "Jagitial",
+      "slug": "jagitial",
+      "lgdCode": 681,
+      "constituencyCount": 3,
+      "bounds": [
+        [
+          78.514117,
+          18.5505281
+        ],
+        [
+          79.3074434,
+          19.0777005
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-689",
+      "stateId": "tg",
+      "name": "Jangoan",
+      "slug": "jangoan",
+      "lgdCode": 689,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          78.8659147,
+          17.4508117
+        ],
+        [
+          79.6025957,
+          18.0016331
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-687",
+      "stateId": "tg",
+      "name": "Jayashankar Bhupalapally",
+      "slug": "jayashankar-bhupalapally",
+      "lgdCode": 687,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          79.5597709,
+          18.1324526
+        ],
+        [
+          80.3440039,
+          18.871957
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-695",
+      "stateId": "tg",
+      "name": "Jogulamba Gadwal",
+      "slug": "jogulamba-gadwal",
+      "lgdCode": 695,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          77.486152,
+          15.8360033
+        ],
+        [
+          78.2536239,
+          16.3639588
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-685",
+      "stateId": "tg",
+      "name": "Kamareddy",
+      "slug": "kamareddy",
+      "lgdCode": 685,
+      "constituencyCount": 3,
+      "bounds": [
+        [
+          77.5202063,
+          18.059867
+        ],
+        [
+          78.569496,
+          18.5567887
+        ]
+      ]
+    },
+    {
+      "id": "tg-karimnagar",
+      "stateId": "tg",
+      "name": "Karimnagar",
+      "slug": "karimnagar",
+      "lgdCode": 508,
+      "constituencyCount": 4,
+      "bounds": [
+        [
+          78.9225076,
+          18.1299871
+        ],
+        [
+          79.5804799,
+          18.6783148
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-509",
+      "stateId": "tg",
+      "name": "Khammam",
+      "slug": "khammam",
+      "lgdCode": 509,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          79.8015252,
+          16.768009
+        ],
+        [
+          80.9264528,
+          17.5730899
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-699",
+      "stateId": "tg",
+      "name": "Kumuram Bheem Asifabad",
+      "slug": "kumuram-bheem-asifabad",
+      "lgdCode": 699,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          78.8090486,
+          19.0294736
+        ],
+        [
+          79.9797173,
+          19.6166889
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-688",
+      "stateId": "tg",
+      "name": "Mahabubabad",
+      "slug": "mahabubabad",
+      "lgdCode": 688,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          79.5772815,
+          17.3243116
+        ],
+        [
+          80.3161784,
+          18.1170271
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-512",
+      "stateId": "tg",
+      "name": "Mahabubnagar",
+      "slug": "mahabubnagar",
+      "lgdCode": 512,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          77.6743724,
+          16.3708891
+        ],
+        [
+          78.4937176,
+          17.0134428
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-684",
+      "stateId": "tg",
+      "name": "Mancherial",
+      "slug": "mancherial",
+      "lgdCode": 684,
+      "constituencyCount": 3,
+      "bounds": [
+        [
+          78.8773274,
+          18.6704652
+        ],
+        [
+          79.961672,
+          19.2649067
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-513",
+      "stateId": "tg",
+      "name": "Medak",
+      "slug": "medak",
+      "lgdCode": 513,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          77.8512636,
+          17.6633786
+        ],
+        [
+          78.5878844,
+          18.2175149
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-700",
+      "stateId": "tg",
+      "name": "Medchal Malkajgiri",
+      "slug": "medchal-malkajgiri",
+      "lgdCode": 700,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          78.3476359,
+          17.3605751
+        ],
+        [
+          78.7606735,
+          17.7079349
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-720",
+      "stateId": "tg",
+      "name": "Mulugu",
+      "slug": "mulugu",
+      "lgdCode": 720,
+      "constituencyCount": 1,
+      "bounds": [
+        [
+          79.8144942,
+          17.9959655
+        ],
+        [
+          80.7942845,
+          18.6311125
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-694",
+      "stateId": "tg",
+      "name": "Nagarkurnool",
+      "slug": "nagarkurnool",
+      "lgdCode": 694,
+      "constituencyCount": 4,
+      "bounds": [
+        [
+          78.0998931,
+          16.0081518
+        ],
+        [
+          79.2342959,
+          16.8324079
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-514",
+      "stateId": "tg",
+      "name": "Nalgonda",
+      "slug": "nalgonda",
+      "lgdCode": 514,
+      "constituencyCount": 6,
+      "bounds": [
+        [
+          78.6618843,
+          16.3561747
+        ],
+        [
+          79.6998293,
+          17.3601601
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-721",
+      "stateId": "tg",
+      "name": "Narayanpet",
+      "slug": "narayanpet",
+      "lgdCode": 721,
+      "constituencyCount": 3,
+      "bounds": [
+        [
+          77.235761,
+          16.3407355
+        ],
+        [
+          77.798898,
+          17.0402335
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-680",
+      "stateId": "tg",
+      "name": "Nirmal",
+      "slug": "nirmal",
+      "lgdCode": 680,
+      "constituencyCount": 3,
+      "bounds": [
+        [
+          77.7617902,
+          18.8432892
+        ],
+        [
+          78.9543607,
+          19.342741
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-516",
+      "stateId": "tg",
+      "name": "Nizamabad",
+      "slug": "nizamabad",
+      "lgdCode": 516,
+      "constituencyCount": 6,
+      "bounds": [
+        [
+          77.7299742,
+          18.4361486
+        ],
+        [
+          78.669888,
+          19.0163404
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-682",
+      "stateId": "tg",
+      "name": "Peddapalli",
+      "slug": "peddapalli",
+      "lgdCode": 682,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          79.1105418,
+          18.3852238
+        ],
+        [
+          79.832423,
+          18.857061
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-683",
+      "stateId": "tg",
+      "name": "Rajanna Sircilla",
+      "slug": "rajanna-sircilla",
+      "lgdCode": 683,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          78.5212057,
+          18.2065477
+        ],
+        [
+          79.0247383,
+          18.6418391
+        ]
+      ]
+    },
+    {
+      "id": "tg-rangareddy",
+      "stateId": "tg",
+      "name": "Ranga Reddy",
+      "slug": "ranga-reddy",
+      "lgdCode": 518,
+      "constituencyCount": 7,
+      "bounds": [
+        [
+          77.922744,
+          16.7460768
+        ],
+        [
+          78.8442066,
+          17.5224728
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-691",
+      "stateId": "tg",
+      "name": "Sangareddy",
+      "slug": "sangareddy",
+      "lgdCode": 691,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          77.4431003,
+          17.4274146
+        ],
+        [
+          78.4500306,
+          18.2860743
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-692",
+      "stateId": "tg",
+      "name": "Siddipet",
+      "slug": "siddipet",
+      "lgdCode": 692,
+      "constituencyCount": 5,
+      "bounds": [
+        [
+          78.4991574,
+          17.6678486
+        ],
+        [
+          79.3012096,
+          18.4247249
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-696",
+      "stateId": "tg",
+      "name": "Suryapet",
+      "slug": "suryapet",
+      "lgdCode": 696,
+      "constituencyCount": 4,
+      "bounds": [
+        [
+          79.3629704,
+          16.6312778
+        ],
+        [
+          80.073254,
+          17.528909
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-698",
+      "stateId": "tg",
+      "name": "Vikarabad",
+      "slug": "vikarabad",
+      "lgdCode": 698,
+      "constituencyCount": 3,
+      "bounds": [
+        [
+          77.3624456,
+          16.8468237
+        ],
+        [
+          78.0729705,
+          17.6387198
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-693",
+      "stateId": "tg",
+      "name": "Wanaparthy",
+      "slug": "wanaparthy",
+      "lgdCode": 693,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          77.6646795,
+          15.9430621
+        ],
+        [
+          78.3150422,
+          16.6262115
+        ]
+      ]
+    },
+    {
+      "id": "tg-warangal",
+      "stateId": "tg",
+      "name": "Warangal",
+      "slug": "warangal",
+      "lgdCode": 522,
+      "constituencyCount": 3,
+      "bounds": [
+        [
+          79.4809967,
+          17.6178016
+        ],
+        [
+          79.9944437,
+          18.1119718
+        ]
+      ]
+    },
+    {
+      "id": "tg-district-697",
+      "stateId": "tg",
+      "name": "Yadadri Bhuvanagiri",
+      "slug": "yadadri-bhuvanagiri",
+      "lgdCode": 697,
+      "constituencyCount": 2,
+      "bounds": [
+        [
+          78.6765132,
+          17.0436009
+        ],
+        [
+          79.4537002,
+          17.8123732
+        ]
+      ]
+    }
+  ],
+  "constituencies": [
+    {
+      "id": "ka-ac-001",
+      "name": "Nippani",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 1,
+      "bounds": [
+        [
+          74.2467926,
+          16.3223492
+        ],
+        [
+          74.5450274,
+          16.6647648
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-002",
+      "name": "Chikkodi-Sadalga",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 2,
+      "bounds": [
+        [
+          74.4012699,
+          16.3364081
+        ],
+        [
+          74.7785078,
+          16.611179
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-003",
+      "name": "Athani",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 3,
+      "bounds": [
+        [
+          74.9411685,
+          16.5058267
+        ],
+        [
+          75.3920953,
+          16.9596389
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-004",
+      "name": "Kagwad",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 4,
+      "bounds": [
+        [
+          74.6524658,
+          16.5716604
+        ],
+        [
+          75.1893634,
+          16.9527093
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-005",
+      "name": "Kudachi (SC)",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 5,
+      "bounds": [
+        [
+          74.8034846,
+          16.3548575
+        ],
+        [
+          75.0777683,
+          16.6574802
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-006",
+      "name": "Raybag (SC)",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 6,
+      "bounds": [
+        [
+          74.4722764,
+          16.2839729
+        ],
+        [
+          74.9282464,
+          16.5901617
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-007",
+      "name": "Hukkeri",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 7,
+      "bounds": [
+        [
+          74.3216591,
+          16.1129547
+        ],
+        [
+          74.7542985,
+          16.3682969
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-008",
+      "name": "Arabhavi",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 8,
+      "bounds": [
+        [
+          74.7840107,
+          16.1169554
+        ],
+        [
+          75.2379664,
+          16.3957976
+        ]
+      ]
+    },
+    {
+      "id": "ka-gokak",
+      "name": "Gokak",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 9,
+      "bounds": [
+        [
+          74.6454632,
+          15.9442223
+        ],
+        [
+          74.9801984,
+          16.320822
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-010",
+      "name": "Yemkanmardi (ST)",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 10,
+      "bounds": [
+        [
+          74.3606401,
+          15.8801452
+        ],
+        [
+          74.769169,
+          16.259961
+        ]
+      ]
+    },
+    {
+      "id": "ka-belagavi-north",
+      "name": "Belgaum Uttar",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 11,
+      "bounds": [
+        [
+          74.4740115,
+          15.8240753
+        ],
+        [
+          74.5823373,
+          15.9370177
+        ]
+      ]
+    },
+    {
+      "id": "ka-belagavi-south",
+      "name": "Belgaum Dakshin",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 12,
+      "bounds": [
+        [
+          74.4534613,
+          15.7323923
+        ],
+        [
+          74.5705955,
+          15.845782
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-013",
+      "name": "Belgaum Rural",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 13,
+      "bounds": [
+        [
+          74.3308773,
+          15.6933604
+        ],
+        [
+          74.7004527,
+          15.9702995
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-014",
+      "name": "Khanapur",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 14,
+      "bounds": [
+        [
+          74.0867754,
+          15.3590304
+        ],
+        [
+          74.7447064,
+          15.78807
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-015",
+      "name": "Kittur",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 15,
+      "bounds": [
+        [
+          74.6316286,
+          15.4587404
+        ],
+        [
+          74.8799361,
+          15.9917109
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-016",
+      "name": "Bailhongal",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 16,
+      "bounds": [
+        [
+          74.7680714,
+          15.6129622
+        ],
+        [
+          75.1218146,
+          16.0052315
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-017",
+      "name": "Saundatti Yellamma",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 17,
+      "bounds": [
+        [
+          74.9030092,
+          15.6086245
+        ],
+        [
+          75.3191375,
+          16.158186
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-018",
+      "name": "Ramdurg",
+      "stateId": "ka",
+      "districtId": "ka-belagavi",
+      "constituencyNumber": 18,
+      "bounds": [
+        [
+          75.0703869,
+          15.7770148
+        ],
+        [
+          75.457495,
+          16.2096172
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-019",
+      "name": "Mudhol (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-524",
+      "constituencyNumber": 19,
+      "bounds": [
+        [
+          75.1136574,
+          16.1127073
+        ],
+        [
+          75.4966881,
+          16.4355302
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-020",
+      "name": "Terdal",
+      "stateId": "ka",
+      "districtId": "ka-district-524",
+      "constituencyNumber": 20,
+      "bounds": [
+        [
+          74.9861126,
+          16.3190525
+        ],
+        [
+          75.2651029,
+          16.5909724
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-021",
+      "name": "Jamkhandi",
+      "stateId": "ka",
+      "districtId": "ka-district-524",
+      "constituencyNumber": 21,
+      "bounds": [
+        [
+          75.1610765,
+          16.4011356
+        ],
+        [
+          75.4937111,
+          16.7678101
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-022",
+      "name": "Bilgi",
+      "stateId": "ka",
+      "districtId": "ka-district-524",
+      "constituencyNumber": 22,
+      "bounds": [
+        [
+          75.3826727,
+          15.9733598
+        ],
+        [
+          75.8389167,
+          16.5300084
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-023",
+      "name": "Badami",
+      "stateId": "ka",
+      "districtId": "ka-district-524",
+      "constituencyNumber": 23,
+      "bounds": [
+        [
+          75.4210528,
+          15.8110822
+        ],
+        [
+          75.8785617,
+          16.1446861
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-024",
+      "name": "Bagalkot",
+      "stateId": "ka",
+      "districtId": "ka-district-524",
+      "constituencyNumber": 24,
+      "bounds": [
+        [
+          75.6410651,
+          16.0146082
+        ],
+        [
+          76.0442683,
+          16.3505418
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-025",
+      "name": "Hungund",
+      "stateId": "ka",
+      "districtId": "ka-district-524",
+      "constituencyNumber": 25,
+      "bounds": [
+        [
+          75.8487886,
+          15.8583032
+        ],
+        [
+          76.3322355,
+          16.2793668
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-026",
+      "name": "Muddebihal",
+      "stateId": "ka",
+      "districtId": "ka-district-530",
+      "constituencyNumber": 26,
+      "bounds": [
+        [
+          75.9120211,
+          16.1506535
+        ],
+        [
+          76.3685158,
+          16.5850195
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-027",
+      "name": "Devar Hippargi",
+      "stateId": "ka",
+      "districtId": "ka-district-530",
+      "constituencyNumber": 27,
+      "bounds": [
+        [
+          75.9534717,
+          16.3396536
+        ],
+        [
+          76.4618156,
+          16.9868842
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-028",
+      "name": "Basavana Bagevadi",
+      "stateId": "ka",
+      "districtId": "ka-district-530",
+      "constituencyNumber": 28,
+      "bounds": [
+        [
+          75.6300615,
+          16.3207721
+        ],
+        [
+          76.0589304,
+          16.7726425
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-029",
+      "name": "Babaleshwar",
+      "stateId": "ka",
+      "districtId": "ka-district-530",
+      "constituencyNumber": 29,
+      "bounds": [
+        [
+          75.3307308,
+          16.4117013
+        ],
+        [
+          75.7856626,
+          17.00986
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-030",
+      "name": "Bijapur City",
+      "stateId": "ka",
+      "districtId": "ka-district-530",
+      "constituencyNumber": 30,
+      "bounds": [
+        [
+          75.6629759,
+          16.75395
+        ],
+        [
+          75.8017435,
+          16.9094683
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-031",
+      "name": "Nagthan (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-530",
+      "constituencyNumber": 31,
+      "bounds": [
+        [
+          75.5761361,
+          16.698301
+        ],
+        [
+          76.0254462,
+          17.4781809
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-032",
+      "name": "Indi",
+      "stateId": "ka",
+      "districtId": "ka-district-530",
+      "constituencyNumber": 32,
+      "bounds": [
+        [
+          75.7245264,
+          16.9330401
+        ],
+        [
+          76.1954358,
+          17.3568714
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-033",
+      "name": "Sindgi",
+      "stateId": "ka",
+      "districtId": "ka-district-530",
+      "constituencyNumber": 33,
+      "bounds": [
+        [
+          75.9476053,
+          16.6995662
+        ],
+        [
+          76.4720474,
+          17.188618
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-034",
+      "name": "Afzalpur",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 34,
+      "bounds": [
+        [
+          76.0650387,
+          17.0442507
+        ],
+        [
+          76.8815868,
+          17.3796182
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-035",
+      "name": "Jevargi",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 35,
+      "bounds": [
+        [
+          76.3550882,
+          16.7109366
+        ],
+        [
+          76.9531621,
+          17.1866555
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-036",
+      "name": "Shorapur (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-635",
+      "constituencyNumber": 36,
+      "bounds": [
+        [
+          76.2914995,
+          16.1938046
+        ],
+        [
+          76.8796007,
+          16.6328288
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-037",
+      "name": "Shahapur",
+      "stateId": "ka",
+      "districtId": "ka-district-635",
+      "constituencyNumber": 37,
+      "bounds": [
+        [
+          76.4033408,
+          16.5575285
+        ],
+        [
+          76.933879,
+          16.8958338
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-038",
+      "name": "Yadgir",
+      "stateId": "ka",
+      "districtId": "ka-district-635",
+      "constituencyNumber": 38,
+      "bounds": [
+        [
+          76.8478363,
+          16.4024392
+        ],
+        [
+          77.2943127,
+          16.8440838
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-039",
+      "name": "Gurmitkal",
+      "stateId": "ka",
+      "districtId": "ka-district-635",
+      "constituencyNumber": 39,
+      "bounds": [
+        [
+          76.9785394,
+          16.4728112
+        ],
+        [
+          77.4765386,
+          16.954047
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-040",
+      "name": "Chittapur (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 40,
+      "bounds": [
+        [
+          76.8535391,
+          16.8096819
+        ],
+        [
+          77.2285583,
+          17.4495789
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-041",
+      "name": "Sedam",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 41,
+      "bounds": [
+        [
+          77.1086269,
+          16.8747328
+        ],
+        [
+          77.5026228,
+          17.432241
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-042",
+      "name": "Chincholi (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 42,
+      "bounds": [
+        [
+          76.997793,
+          17.2155779
+        ],
+        [
+          77.6925564,
+          17.6329698
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-043",
+      "name": "Gulbarga Rural (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 43,
+      "bounds": [
+        [
+          76.6708355,
+          17.0960648
+        ],
+        [
+          77.161573,
+          17.6969477
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-044",
+      "name": "Gulbarga Dakshin",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 44,
+      "bounds": [
+        [
+          76.6296024,
+          17.222263
+        ],
+        [
+          76.8702675,
+          17.4513106
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-045",
+      "name": "Gulbarga Uttar",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 45,
+      "bounds": [
+        [
+          76.7873225,
+          17.2959259
+        ],
+        [
+          76.8735618,
+          17.4093115
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-046",
+      "name": "Aland",
+      "stateId": "ka",
+      "districtId": "ka-district-538",
+      "constituencyNumber": 46,
+      "bounds": [
+        [
+          76.3305452,
+          17.3254567
+        ],
+        [
+          76.7577128,
+          17.7708318
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-047",
+      "name": "Basavakalyan",
+      "stateId": "ka",
+      "districtId": "ka-district-529",
+      "constituencyNumber": 47,
+      "bounds": [
+        [
+          76.6904003,
+          17.6084695
+        ],
+        [
+          77.0949022,
+          18.0671951
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-048",
+      "name": "Homnabad",
+      "stateId": "ka",
+      "districtId": "ka-district-529",
+      "constituencyNumber": 48,
+      "bounds": [
+        [
+          76.9060933,
+          17.6140171
+        ],
+        [
+          77.3321252,
+          17.9436581
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-049",
+      "name": "Bidar South",
+      "stateId": "ka",
+      "districtId": "ka-district-529",
+      "constituencyNumber": 49,
+      "bounds": [
+        [
+          77.245581,
+          17.5831454
+        ],
+        [
+          77.6004258,
+          17.9872245
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-050",
+      "name": "Bidar",
+      "stateId": "ka",
+      "districtId": "ka-district-529",
+      "constituencyNumber": 50,
+      "bounds": [
+        [
+          77.3779051,
+          17.8685771
+        ],
+        [
+          77.6559066,
+          18.0855079
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-051",
+      "name": "Bhalki",
+      "stateId": "ka",
+      "districtId": "ka-district-529",
+      "constituencyNumber": 51,
+      "bounds": [
+        [
+          76.9200146,
+          17.8540787
+        ],
+        [
+          77.4137879,
+          18.2074859
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-052",
+      "name": "Aurad (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-529",
+      "constituencyNumber": 52,
+      "bounds": [
+        [
+          77.1325775,
+          18.0209638
+        ],
+        [
+          77.6054105,
+          18.459308
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-053",
+      "name": "Raichur Rural (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-546",
+      "constituencyNumber": 53,
+      "bounds": [
+        [
+          77.0638187,
+          15.9271315
+        ],
+        [
+          77.5978413,
+          16.4208503
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-054",
+      "name": "Raichur",
+      "stateId": "ka",
+      "districtId": "ka-district-546",
+      "constituencyNumber": 54,
+      "bounds": [
+        [
+          77.2481283,
+          16.1174993
+        ],
+        [
+          77.466293,
+          16.305025
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-055",
+      "name": "Manvi (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-546",
+      "constituencyNumber": 55,
+      "bounds": [
+        [
+          76.7698539,
+          15.8538095
+        ],
+        [
+          77.2573616,
+          16.2291414
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-056",
+      "name": "Devadurga (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-546",
+      "constituencyNumber": 56,
+      "bounds": [
+        [
+          76.6511406,
+          16.1788664
+        ],
+        [
+          77.2241177,
+          16.562223
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-057",
+      "name": "Lingsugur (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-546",
+      "constituencyNumber": 57,
+      "bounds": [
+        [
+          76.2341913,
+          15.8537955
+        ],
+        [
+          76.7952795,
+          16.3643433
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-058",
+      "name": "Sindhanur",
+      "stateId": "ka",
+      "districtId": "ka-district-546",
+      "constituencyNumber": 58,
+      "bounds": [
+        [
+          76.5970733,
+          15.5472681
+        ],
+        [
+          77.0315841,
+          15.9427196
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-059",
+      "name": "Maski (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-546",
+      "constituencyNumber": 59,
+      "bounds": [
+        [
+          76.4127441,
+          15.697344
+        ],
+        [
+          76.8743672,
+          16.1576469
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-060",
+      "name": "Kushtagi",
+      "stateId": "ka",
+      "districtId": "ka-district-543",
+      "constituencyNumber": 60,
+      "bounds": [
+        [
+          75.7735568,
+          15.6315874
+        ],
+        [
+          76.4841964,
+          16.0117467
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-061",
+      "name": "Kanakagiri (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-543",
+      "constituencyNumber": 61,
+      "bounds": [
+        [
+          76.3005945,
+          15.403287
+        ],
+        [
+          76.8127234,
+          15.716785
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-062",
+      "name": "Gangawati",
+      "stateId": "ka",
+      "districtId": "ka-district-543",
+      "constituencyNumber": 62,
+      "bounds": [
+        [
+          76.1108593,
+          15.3351965
+        ],
+        [
+          76.5784669,
+          15.6165651
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-063",
+      "name": "Yelburga",
+      "stateId": "ka",
+      "districtId": "ka-district-543",
+      "constituencyNumber": 63,
+      "bounds": [
+        [
+          75.8092762,
+          15.305645
+        ],
+        [
+          76.3352612,
+          15.7499563
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-064",
+      "name": "Koppal",
+      "stateId": "ka",
+      "districtId": "ka-district-543",
+      "constituencyNumber": 64,
+      "bounds": [
+        [
+          75.8873439,
+          15.1366808
+        ],
+        [
+          76.430356,
+          15.4515469
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-065",
+      "name": "Shirahatti (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-537",
+      "constituencyNumber": 65,
+      "bounds": [
+        [
+          75.3949175,
+          14.9438779
+        ],
+        [
+          75.9518545,
+          15.302253
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-066",
+      "name": "Gadag",
+      "stateId": "ka",
+      "districtId": "ka-district-537",
+      "constituencyNumber": 66,
+      "bounds": [
+        [
+          75.4410108,
+          15.2102184
+        ],
+        [
+          75.6747149,
+          15.513779
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-067",
+      "name": "Ron",
+      "stateId": "ka",
+      "districtId": "ka-district-537",
+      "constituencyNumber": 67,
+      "bounds": [
+        [
+          75.6262241,
+          15.1250459
+        ],
+        [
+          76.0453051,
+          15.8525135
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-068",
+      "name": "Nargund",
+      "stateId": "ka",
+      "districtId": "ka-district-537",
+      "constituencyNumber": 68,
+      "bounds": [
+        [
+          75.2733906,
+          15.331243
+        ],
+        [
+          75.761196,
+          15.8854198
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-069",
+      "name": "Navalgund",
+      "stateId": "ka",
+      "districtId": "ka-district-536",
+      "constituencyNumber": 69,
+      "bounds": [
+        [
+          75.08463,
+          15.2975882
+        ],
+        [
+          75.5542615,
+          15.7035712
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-070",
+      "name": "Kundgol",
+      "stateId": "ka",
+      "districtId": "ka-district-536",
+      "constituencyNumber": 70,
+      "bounds": [
+        [
+          75.0222564,
+          15.0498154
+        ],
+        [
+          75.4493402,
+          15.3617051
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-071",
+      "name": "Dharwad",
+      "stateId": "ka",
+      "districtId": "ka-district-536",
+      "constituencyNumber": 71,
+      "bounds": [
+        [
+          74.7969754,
+          15.4223989
+        ],
+        [
+          75.2269756,
+          15.6829859
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-072",
+      "name": "Hubli-Dharwad-East (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-536",
+      "constituencyNumber": 72,
+      "bounds": [
+        [
+          75.100454,
+          15.2926819
+        ],
+        [
+          75.2218217,
+          15.3693912
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-073",
+      "name": "Hubli-Dharwad-Central",
+      "stateId": "ka",
+      "districtId": "ka-district-536",
+      "constituencyNumber": 73,
+      "bounds": [
+        [
+          75.100393,
+          15.3323919
+        ],
+        [
+          75.2000249,
+          15.4222861
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-074",
+      "name": "Hubli-Dharwad- West",
+      "stateId": "ka",
+      "districtId": "ka-district-536",
+      "constituencyNumber": 74,
+      "bounds": [
+        [
+          74.9350368,
+          15.3164031
+        ],
+        [
+          75.1420474,
+          15.4732156
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-075",
+      "name": "Kalghatgi",
+      "stateId": "ka",
+      "districtId": "ka-district-536",
+      "constituencyNumber": 75,
+      "bounds": [
+        [
+          74.7268214,
+          15.0383644
+        ],
+        [
+          75.1373805,
+          15.5395592
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-076",
+      "name": "Haliyal",
+      "stateId": "ka",
+      "districtId": "ka-district-550",
+      "constituencyNumber": 76,
+      "bounds": [
+        [
+          74.250712,
+          14.8877973
+        ],
+        [
+          74.9097962,
+          15.5248472
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-077",
+      "name": "Karwar",
+      "stateId": "ka",
+      "districtId": "ka-district-550",
+      "constituencyNumber": 77,
+      "bounds": [
+        [
+          74.0856879,
+          14.5196678
+        ],
+        [
+          74.7066073,
+          15.05145
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-078",
+      "name": "Kumta",
+      "stateId": "ka",
+      "districtId": "ka-district-550",
+      "constituencyNumber": 78,
+      "bounds": [
+        [
+          74.2928084,
+          14.2651834
+        ],
+        [
+          74.6962058,
+          14.6106666
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-079",
+      "name": "Bhatkal",
+      "stateId": "ka",
+      "districtId": "ka-district-550",
+      "constituencyNumber": 79,
+      "bounds": [
+        [
+          74.4312043,
+          13.925402
+        ],
+        [
+          74.7483199,
+          14.3905732
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-080",
+      "name": "Sirsi",
+      "stateId": "ka",
+      "districtId": "ka-district-550",
+      "constituencyNumber": 80,
+      "bounds": [
+        [
+          74.5679538,
+          14.2098636
+        ],
+        [
+          74.9767719,
+          14.8387951
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-081",
+      "name": "Yellapur",
+      "stateId": "ka",
+      "districtId": "ka-district-550",
+      "constituencyNumber": 81,
+      "bounds": [
+        [
+          74.4216386,
+          14.4725006
+        ],
+        [
+          75.1029238,
+          15.154488
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-082",
+      "name": "Hangal",
+      "stateId": "ka",
+      "districtId": "ka-district-540",
+      "constituencyNumber": 82,
+      "bounds": [
+        [
+          75.0151589,
+          14.5721791
+        ],
+        [
+          75.3360824,
+          14.9136032
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-083",
+      "name": "Shiggaon",
+      "stateId": "ka",
+      "districtId": "ka-district-540",
+      "constituencyNumber": 83,
+      "bounds": [
+        [
+          75.067558,
+          14.8501563
+        ],
+        [
+          75.405869,
+          15.1619996
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-084",
+      "name": "Haveri (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-540",
+      "constituencyNumber": 84,
+      "bounds": [
+        [
+          75.3630649,
+          14.7467271
+        ],
+        [
+          75.7388318,
+          15.0618939
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-085",
+      "name": "Byadgi",
+      "stateId": "ka",
+      "districtId": "ka-district-540",
+      "constituencyNumber": 85,
+      "bounds": [
+        [
+          75.2482729,
+          14.517063
+        ],
+        [
+          75.6810284,
+          14.8881658
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-086",
+      "name": "Hirekerur",
+      "stateId": "ka",
+      "districtId": "ka-district-540",
+      "constituencyNumber": 86,
+      "bounds": [
+        [
+          75.2225535,
+          14.2745297
+        ],
+        [
+          75.6384302,
+          14.6094994
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-087",
+      "name": "Ranibennur",
+      "stateId": "ka",
+      "districtId": "ka-district-540",
+      "constituencyNumber": 87,
+      "bounds": [
+        [
+          75.5378667,
+          14.4029041
+        ],
+        [
+          75.8206259,
+          14.799909
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-088",
+      "name": "Hadagalli (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-738",
+      "constituencyNumber": 88,
+      "bounds": [
+        [
+          75.663464,
+          14.7153747
+        ],
+        [
+          76.1632624,
+          15.1619645
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-089",
+      "name": "Hagaribommanahalli (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-738",
+      "constituencyNumber": 89,
+      "bounds": [
+        [
+          76.085374,
+          14.7639152
+        ],
+        [
+          76.4802469,
+          15.2376243
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-090",
+      "name": "Vijayanagara",
+      "stateId": "ka",
+      "districtId": "ka-district-738",
+      "constituencyNumber": 90,
+      "bounds": [
+        [
+          76.3131729,
+          15.1815202
+        ],
+        [
+          76.6351232,
+          15.3796316
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-091",
+      "name": "Kampli (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-528",
+      "constituencyNumber": 91,
+      "bounds": [
+        [
+          76.5412536,
+          15.1905559
+        ],
+        [
+          77.0662859,
+          15.4789978
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-092",
+      "name": "Siruguppa (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-528",
+      "constituencyNumber": 92,
+      "bounds": [
+        [
+          76.6931705,
+          15.3564594
+        ],
+        [
+          77.1289243,
+          15.8375126
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-093",
+      "name": "Bellary (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-528",
+      "constituencyNumber": 93,
+      "bounds": [
+        [
+          76.7494213,
+          15.0046256
+        ],
+        [
+          77.169155,
+          15.3340539
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-094",
+      "name": "Bellary City",
+      "stateId": "ka",
+      "districtId": "ka-district-528",
+      "constituencyNumber": 94,
+      "bounds": [
+        [
+          76.8804867,
+          15.0754779
+        ],
+        [
+          76.9900066,
+          15.2010725
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-095",
+      "name": "Sandur (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-528",
+      "constituencyNumber": 95,
+      "bounds": [
+        [
+          76.362703,
+          14.8586678
+        ],
+        [
+          76.8316247,
+          15.2905445
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-096",
+      "name": "Kudligi (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-738",
+      "constituencyNumber": 96,
+      "bounds": [
+        [
+          76.1838025,
+          14.5600357
+        ],
+        [
+          76.7418865,
+          14.9854617
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-097",
+      "name": "Molakalmuru (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-533",
+      "constituencyNumber": 97,
+      "bounds": [
+        [
+          76.452675,
+          14.3418939
+        ],
+        [
+          76.9754522,
+          15.0363988
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-098",
+      "name": "Challakere (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-533",
+      "constituencyNumber": 98,
+      "bounds": [
+        [
+          76.2654127,
+          14.0716321
+        ],
+        [
+          77.0239732,
+          14.4515868
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-099",
+      "name": "Chitradurga",
+      "stateId": "ka",
+      "districtId": "ka-district-533",
+      "constituencyNumber": 99,
+      "bounds": [
+        [
+          76.1996702,
+          14.051833
+        ],
+        [
+          76.5816811,
+          14.3438744
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-100",
+      "name": "Hiriyur",
+      "stateId": "ka",
+      "districtId": "ka-district-533",
+      "constituencyNumber": 100,
+      "bounds": [
+        [
+          76.4359723,
+          13.683918
+        ],
+        [
+          76.9535529,
+          14.2030805
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-101",
+      "name": "Hosadurga",
+      "stateId": "ka",
+      "districtId": "ka-district-533",
+      "constituencyNumber": 101,
+      "bounds": [
+        [
+          76.1000854,
+          13.5758483
+        ],
+        [
+          76.5607892,
+          14.0034561
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-102",
+      "name": "Holalkere (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-533",
+      "constituencyNumber": 102,
+      "bounds": [
+        [
+          76.024896,
+          13.8598146
+        ],
+        [
+          76.4756494,
+          14.4605955
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-103",
+      "name": "Jagalur (ST)",
+      "stateId": "ka",
+      "districtId": "ka-district-535",
+      "constituencyNumber": 103,
+      "bounds": [
+        [
+          75.9576337,
+          14.4044806
+        ],
+        [
+          76.5338541,
+          14.7201445
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-104",
+      "name": "Harapanahalli",
+      "stateId": "ka",
+      "districtId": "ka-district-738",
+      "constituencyNumber": 104,
+      "bounds": [
+        [
+          75.7361901,
+          14.5179218
+        ],
+        [
+          76.2012334,
+          14.9324404
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-105",
+      "name": "Harihar",
+      "stateId": "ka",
+      "districtId": "ka-district-535",
+      "constituencyNumber": 105,
+      "bounds": [
+        [
+          75.6239244,
+          14.2938251
+        ],
+        [
+          75.9113125,
+          14.6366664
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-106",
+      "name": "Davanagere North",
+      "stateId": "ka",
+      "districtId": "ka-district-535",
+      "constituencyNumber": 106,
+      "bounds": [
+        [
+          75.815266,
+          14.4468702
+        ],
+        [
+          76.0104933,
+          14.564172
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-107",
+      "name": "Davanagere South",
+      "stateId": "ka",
+      "districtId": "ka-district-535",
+      "constituencyNumber": 107,
+      "bounds": [
+        [
+          75.8258409,
+          14.3156184
+        ],
+        [
+          75.9771726,
+          14.4713492
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-108",
+      "name": "Mayakonda (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-535",
+      "constituencyNumber": 108,
+      "bounds": [
+        [
+          75.7348763,
+          14.1049421
+        ],
+        [
+          76.1584247,
+          14.5276582
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-109",
+      "name": "Channagiri",
+      "stateId": "ka",
+      "districtId": "ka-district-535",
+      "constituencyNumber": 109,
+      "bounds": [
+        [
+          75.7987419,
+          13.8060022
+        ],
+        [
+          76.0722818,
+          14.2603193
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-110",
+      "name": "Honnali",
+      "stateId": "ka",
+      "districtId": "ka-district-535",
+      "constituencyNumber": 110,
+      "bounds": [
+        [
+          75.3991267,
+          14.056294
+        ],
+        [
+          75.8486166,
+          14.3625621
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-111",
+      "name": "Shimoga Rural (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-547",
+      "constituencyNumber": 111,
+      "bounds": [
+        [
+          75.2654222,
+          13.8138599
+        ],
+        [
+          75.8482904,
+          14.1381461
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-112",
+      "name": "Bhadravati",
+      "stateId": "ka",
+      "districtId": "ka-district-547",
+      "constituencyNumber": 112,
+      "bounds": [
+        [
+          75.5908451,
+          13.7014509
+        ],
+        [
+          75.8787593,
+          13.9443751
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-113",
+      "name": "Shimoga",
+      "stateId": "ka",
+      "districtId": "ka-district-547",
+      "constituencyNumber": 113,
+      "bounds": [
+        [
+          75.5084637,
+          13.8900506
+        ],
+        [
+          75.6273456,
+          13.9816716
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-114",
+      "name": "Tirthahalli",
+      "stateId": "ka",
+      "districtId": "ka-district-547",
+      "constituencyNumber": 114,
+      "bounds": [
+        [
+          74.8684817,
+          13.4569186
+        ],
+        [
+          75.6090197,
+          13.989113
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-115",
+      "name": "Shikaripura",
+      "stateId": "ka",
+      "districtId": "ka-district-547",
+      "constituencyNumber": 115,
+      "bounds": [
+        [
+          75.149555,
+          14.1033627
+        ],
+        [
+          75.5354679,
+          14.5174486
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-116",
+      "name": "Sorab",
+      "stateId": "ka",
+      "districtId": "ka-district-547",
+      "constituencyNumber": 116,
+      "bounds": [
+        [
+          74.8549365,
+          14.129176
+        ],
+        [
+          75.2971833,
+          14.6550145
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-117",
+      "name": "Sagar",
+      "stateId": "ka",
+      "districtId": "ka-district-547",
+      "constituencyNumber": 117,
+      "bounds": [
+        [
+          74.6254181,
+          13.8528871
+        ],
+        [
+          75.3742272,
+          14.2957147
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-118",
+      "name": "Byndoor",
+      "stateId": "ka",
+      "districtId": "ka-district-549",
+      "constituencyNumber": 118,
+      "bounds": [
+        [
+          74.5828073,
+          13.574178
+        ],
+        [
+          75.03755,
+          13.9813502
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-119",
+      "name": "Kundapura",
+      "stateId": "ka",
+      "districtId": "ka-district-549",
+      "constituencyNumber": 119,
+      "bounds": [
+        [
+          74.667493,
+          13.4367144
+        ],
+        [
+          75.0765554,
+          13.6497478
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-120",
+      "name": "Udupi",
+      "stateId": "ka",
+      "districtId": "ka-district-549",
+      "constituencyNumber": 120,
+      "bounds": [
+        [
+          74.6917142,
+          13.3112217
+        ],
+        [
+          74.9508849,
+          13.5314652
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-121",
+      "name": "Kapu",
+      "stateId": "ka",
+      "districtId": "ka-district-549",
+      "constituencyNumber": 121,
+      "bounds": [
+        [
+          74.699581,
+          13.0717185
+        ],
+        [
+          74.9561405,
+          13.436497
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-122",
+      "name": "Karkal",
+      "stateId": "ka",
+      "districtId": "ka-district-549",
+      "constituencyNumber": 122,
+      "bounds": [
+        [
+          74.8211867,
+          13.0952141
+        ],
+        [
+          75.2057668,
+          13.5199284
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-123",
+      "name": "Sringeri",
+      "stateId": "ka",
+      "districtId": "ka-district-532",
+      "constituencyNumber": 123,
+      "bounds": [
+        [
+          75.078795,
+          13.2106394
+        ],
+        [
+          75.7464581,
+          13.7678932
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-124",
+      "name": "Mudigere (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-532",
+      "constituencyNumber": 124,
+      "bounds": [
+        [
+          75.1577882,
+          12.9125658
+        ],
+        [
+          75.9076347,
+          13.4134894
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-125",
+      "name": "Chikmagalur",
+      "stateId": "ka",
+      "districtId": "ka-district-532",
+      "constituencyNumber": 125,
+      "bounds": [
+        [
+          75.526607,
+          13.248734
+        ],
+        [
+          76.1409248,
+          13.5669593
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-126",
+      "name": "Tarikere",
+      "stateId": "ka",
+      "districtId": "ka-district-532",
+      "constituencyNumber": 126,
+      "bounds": [
+        [
+          75.5863708,
+          13.5054307
+        ],
+        [
+          76.1438171,
+          13.8993757
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-127",
+      "name": "Kadur",
+      "stateId": "ka",
+      "districtId": "ka-district-532",
+      "constituencyNumber": 127,
+      "bounds": [
+        [
+          75.8345073,
+          13.435025
+        ],
+        [
+          76.3639008,
+          13.7607388
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-128",
+      "name": "Chiknayakanhalli",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 128,
+      "bounds": [
+        [
+          76.3528077,
+          13.3137998
+        ],
+        [
+          76.9304733,
+          13.7996302
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-129",
+      "name": "Tiptur",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 129,
+      "bounds": [
+        [
+          76.3462922,
+          13.0689434
+        ],
+        [
+          76.7229539,
+          13.4359776
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-130",
+      "name": "Turuvekere",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 130,
+      "bounds": [
+        [
+          76.5521598,
+          13.0021271
+        ],
+        [
+          76.9839649,
+          13.3096472
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-131",
+      "name": "Kunigal",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 131,
+      "bounds": [
+        [
+          76.8271121,
+          12.7449704
+        ],
+        [
+          77.1661749,
+          13.1346998
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-132",
+      "name": "Tumkur City",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 132,
+      "bounds": [
+        [
+          77.0843636,
+          13.3202278
+        ],
+        [
+          77.1273068,
+          13.3573949
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-133",
+      "name": "Tumkur Rural",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 133,
+      "bounds": [
+        [
+          76.9639278,
+          13.1117167
+        ],
+        [
+          77.3390328,
+          13.5433017
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-134",
+      "name": "Koratagere (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 134,
+      "bounds": [
+        [
+          77.0084966,
+          13.3189186
+        ],
+        [
+          77.3914631,
+          13.7478745
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-135",
+      "name": "Gubbi",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 135,
+      "bounds": [
+        [
+          76.696928,
+          13.1841242
+        ],
+        [
+          77.0049623,
+          13.5915575
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-136",
+      "name": "Sira",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 136,
+      "bounds": [
+        [
+          76.7210803,
+          13.4901198
+        ],
+        [
+          77.049812,
+          14.0921246
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-137",
+      "name": "Pavagada (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 137,
+      "bounds": [
+        [
+          76.9989809,
+          13.8885662
+        ],
+        [
+          77.5170814,
+          14.3421973
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-138",
+      "name": "Madhugiri",
+      "stateId": "ka",
+      "districtId": "ka-district-548",
+      "constituencyNumber": 138,
+      "bounds": [
+        [
+          77.0090611,
+          13.5810471
+        ],
+        [
+          77.4705514,
+          13.925216
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-139",
+      "name": "Gauribidanur",
+      "stateId": "ka",
+      "districtId": "ka-district-630",
+      "constituencyNumber": 139,
+      "bounds": [
+        [
+          77.3595002,
+          13.4291085
+        ],
+        [
+          77.7196384,
+          13.7868029
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-140",
+      "name": "Bagepalli",
+      "stateId": "ka",
+      "districtId": "ka-district-630",
+      "constituencyNumber": 140,
+      "bounds": [
+        [
+          77.6402609,
+          13.6112379
+        ],
+        [
+          78.1258192,
+          13.9602333
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-141",
+      "name": "Chikkaballapur",
+      "stateId": "ka",
+      "districtId": "ka-district-630",
+      "constituencyNumber": 141,
+      "bounds": [
+        [
+          77.5424709,
+          13.3340808
+        ],
+        [
+          77.8712398,
+          13.6679756
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-142",
+      "name": "Sidlaghatta",
+      "stateId": "ka",
+      "districtId": "ka-district-630",
+      "constituencyNumber": 142,
+      "bounds": [
+        [
+          77.7907391,
+          13.2170838
+        ],
+        [
+          78.1290265,
+          13.6768929
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-143",
+      "name": "Chintamani",
+      "stateId": "ka",
+      "districtId": "ka-district-630",
+      "constituencyNumber": 143,
+      "bounds": [
+        [
+          77.91549,
+          13.2674316
+        ],
+        [
+          78.2100445,
+          13.6594858
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-144",
+      "name": "Srinivaspur",
+      "stateId": "ka",
+      "districtId": "ka-district-542",
+      "constituencyNumber": 144,
+      "bounds": [
+        [
+          78.0380384,
+          13.1524464
+        ],
+        [
+          78.4085008,
+          13.5986638
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-145",
+      "name": "Mulbagal (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-542",
+      "constituencyNumber": 145,
+      "bounds": [
+        [
+          78.24184,
+          13.0195006
+        ],
+        [
+          78.5878542,
+          13.3313323
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-146",
+      "name": "Kolar Gold Field (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-542",
+      "constituencyNumber": 146,
+      "bounds": [
+        [
+          78.2261637,
+          12.8578353
+        ],
+        [
+          78.4747069,
+          13.0831014
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-147",
+      "name": "Bangarapet (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-542",
+      "constituencyNumber": 147,
+      "bounds": [
+        [
+          78.0859128,
+          12.76071
+        ],
+        [
+          78.2909678,
+          13.184453
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-148",
+      "name": "Kolar",
+      "stateId": "ka",
+      "districtId": "ka-district-542",
+      "constituencyNumber": 148,
+      "bounds": [
+        [
+          77.9280822,
+          13.0331918
+        ],
+        [
+          78.1888906,
+          13.3053263
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-149",
+      "name": "Malur",
+      "stateId": "ka",
+      "districtId": "ka-district-542",
+      "constituencyNumber": 149,
+      "bounds": [
+        [
+          77.8395043,
+          12.8057911
+        ],
+        [
+          78.1365387,
+          13.1158168
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-150",
+      "name": "Yelahanka",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 150,
+      "bounds": [
+        [
+          77.3723842,
+          12.9816317
+        ],
+        [
+          77.614708,
+          13.2330542
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-151",
+      "name": "K.r.pura",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 151,
+      "bounds": [
+        [
+          77.6331737,
+          12.9809425
+        ],
+        [
+          77.7296914,
+          13.0851594
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-152",
+      "name": "Byatarayanapura",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 152,
+      "bounds": [
+        [
+          77.5229833,
+          13.0388529
+        ],
+        [
+          77.7403816,
+          13.206036
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-153",
+      "name": "Yeshvanthapura",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 153,
+      "bounds": [
+        [
+          77.3294937,
+          12.7329467
+        ],
+        [
+          77.5539884,
+          13.052416
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-154",
+      "name": "Rajarajeshwarinagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 154,
+      "bounds": [
+        [
+          77.4844227,
+          12.8951798
+        ],
+        [
+          77.5633738,
+          13.0569945
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-155",
+      "name": "Dasarahalli",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 155,
+      "bounds": [
+        [
+          77.4899459,
+          12.9943169
+        ],
+        [
+          77.5379884,
+          13.1000621
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-156",
+      "name": "Mahalakshmi Layout",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 156,
+      "bounds": [
+        [
+          77.5215762,
+          12.9838538
+        ],
+        [
+          77.5558208,
+          13.0259231
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-157",
+      "name": "Malleshwaram",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 157,
+      "bounds": [
+        [
+          77.5536034,
+          12.9868513
+        ],
+        [
+          77.597032,
+          13.0424774
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-158",
+      "name": "Hebbal",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 158,
+      "bounds": [
+        [
+          77.5639753,
+          13.0089864
+        ],
+        [
+          77.6113018,
+          13.0457174
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-159",
+      "name": "Pulakeshinagar (SC)",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 159,
+      "bounds": [
+        [
+          77.5966644,
+          12.9860622
+        ],
+        [
+          77.6229504,
+          13.0349101
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-160",
+      "name": "Sarvagnanagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 160,
+      "bounds": [
+        [
+          77.6072052,
+          12.9902604
+        ],
+        [
+          77.6622846,
+          13.048405
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-161",
+      "name": "C.v. Raman Nagar (SC)",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 161,
+      "bounds": [
+        [
+          77.6169859,
+          12.9395614
+        ],
+        [
+          77.6877535,
+          13.0098394
+        ]
+      ]
+    },
+    {
+      "id": "ka-shivajinagar",
+      "name": "Shivajinagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 162,
+      "bounds": [
+        [
+          77.5757071,
+          12.9615623
+        ],
+        [
+          77.6270655,
+          13.009844
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-163",
+      "name": "Shanti Nagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 163,
+      "bounds": [
+        [
+          77.5927079,
+          12.9470457
+        ],
+        [
+          77.6432507,
+          12.9792086
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-164",
+      "name": "Gandhi Nagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 164,
+      "bounds": [
+        [
+          77.5556904,
+          12.9639005
+        ],
+        [
+          77.587058,
+          13.0019584
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-165",
+      "name": "Rajaji Nagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 165,
+      "bounds": [
+        [
+          77.5306607,
+          12.9767352
+        ],
+        [
+          77.5690031,
+          12.9979245
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-166",
+      "name": "Govindraj Nagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 166,
+      "bounds": [
+        [
+          77.5122458,
+          12.9367671
+        ],
+        [
+          77.5560438,
+          12.9874464
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-167",
+      "name": "Vijay Nagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 167,
+      "bounds": [
+        [
+          77.5222134,
+          12.942287
+        ],
+        [
+          77.559105,
+          12.9767928
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-168",
+      "name": "Chamrajpet",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 168,
+      "bounds": [
+        [
+          77.5449976,
+          12.9489427
+        ],
+        [
+          77.5796345,
+          12.969013
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-169",
+      "name": "Chickpet",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 169,
+      "bounds": [
+        [
+          77.5581177,
+          12.9270963
+        ],
+        [
+          77.6028948,
+          12.9667957
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-170",
+      "name": "Basavanagudi",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 170,
+      "bounds": [
+        [
+          77.5392123,
+          12.922847
+        ],
+        [
+          77.5746388,
+          12.9543689
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-171",
+      "name": "Padmanaba Nagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 171,
+      "bounds": [
+        [
+          77.5344452,
+          12.8981346
+        ],
+        [
+          77.5856703,
+          12.9397863
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-172",
+      "name": "B.t.m Layout",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 172,
+      "bounds": [
+        [
+          77.5973451,
+          12.9039296
+        ],
+        [
+          77.6486186,
+          12.949698
+        ]
+      ]
+    },
+    {
+      "id": "ka-jayanagar",
+      "name": "Jayanagar",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 173,
+      "bounds": [
+        [
+          77.572859,
+          12.9003166
+        ],
+        [
+          77.6065855,
+          12.9371923
+        ]
+      ]
+    },
+    {
+      "id": "ka-mahadevapura",
+      "name": "Mahadevapura",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 174,
+      "bounds": [
+        [
+          77.6368306,
+          12.8738173
+        ],
+        [
+          77.7847532,
+          13.1155725
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-175",
+      "name": "Bommanahalli",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 175,
+      "bounds": [
+        [
+          77.579344,
+          12.8645723
+        ],
+        [
+          77.6686542,
+          12.9301387
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-176",
+      "name": "Bangalore South",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 176,
+      "bounds": [
+        [
+          77.5176016,
+          12.6995395
+        ],
+        [
+          77.6908879,
+          12.9197647
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-177",
+      "name": "Anekal (SC)",
+      "stateId": "ka",
+      "districtId": "ka-bengaluru",
+      "constituencyNumber": 177,
+      "bounds": [
+        [
+          77.5944437,
+          12.6580842
+        ],
+        [
+          77.8356447,
+          12.9408146
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-178",
+      "name": "Hosakote",
+      "stateId": "ka",
+      "districtId": "ka-district-526",
+      "constituencyNumber": 178,
+      "bounds": [
+        [
+          77.7588774,
+          12.8658619
+        ],
+        [
+          77.9658548,
+          13.2546338
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-179",
+      "name": "Devanahalli (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-526",
+      "constituencyNumber": 179,
+      "bounds": [
+        [
+          77.4234837,
+          13.1135079
+        ],
+        [
+          77.8340238,
+          13.4456686
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-180",
+      "name": "Doddaballapur",
+      "stateId": "ka",
+      "districtId": "ka-district-526",
+      "constituencyNumber": 180,
+      "bounds": [
+        [
+          77.3161511,
+          13.1610188
+        ],
+        [
+          77.6299191,
+          13.4989858
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-181",
+      "name": "Nelamangala (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-526",
+      "constituencyNumber": 181,
+      "bounds": [
+        [
+          77.1826161,
+          12.9709344
+        ],
+        [
+          77.4320464,
+          13.3302961
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-182",
+      "name": "Magadi",
+      "stateId": "ka",
+      "districtId": "ka-district-631",
+      "constituencyNumber": 182,
+      "bounds": [
+        [
+          77.0697346,
+          12.7066345
+        ],
+        [
+          77.4840054,
+          13.1973549
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-183",
+      "name": "Ramanagaram",
+      "stateId": "ka",
+      "districtId": "ka-district-631",
+      "constituencyNumber": 183,
+      "bounds": [
+        [
+          77.225745,
+          12.463871
+        ],
+        [
+          77.6162703,
+          12.8613395
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-184",
+      "name": "Kanakapura",
+      "stateId": "ka",
+      "districtId": "ka-district-631",
+      "constituencyNumber": 184,
+      "bounds": [
+        [
+          77.2252114,
+          12.242865
+        ],
+        [
+          77.6347837,
+          12.6453341
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-185",
+      "name": "Channapatna",
+      "stateId": "ka",
+      "districtId": "ka-district-631",
+      "constituencyNumber": 185,
+      "bounds": [
+        [
+          77.0725022,
+          12.4620217
+        ],
+        [
+          77.3259393,
+          12.8032919
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-186",
+      "name": "Malavalli (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-544",
+      "constituencyNumber": 186,
+      "bounds": [
+        [
+          76.9205679,
+          12.2176224
+        ],
+        [
+          77.3337064,
+          12.5021578
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-187",
+      "name": "Maddur",
+      "stateId": "ka",
+      "districtId": "ka-district-544",
+      "constituencyNumber": 187,
+      "bounds": [
+        [
+          76.9421682,
+          12.4170377
+        ],
+        [
+          77.135405,
+          12.7818953
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-188",
+      "name": "Melukote",
+      "stateId": "ka",
+      "districtId": "ka-district-544",
+      "constituencyNumber": 188,
+      "bounds": [
+        [
+          76.5130418,
+          12.421968
+        ],
+        [
+          76.8817583,
+          12.7262322
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-189",
+      "name": "Mandya",
+      "stateId": "ka",
+      "districtId": "ka-district-544",
+      "constituencyNumber": 189,
+      "bounds": [
+        [
+          76.7494054,
+          12.5121004
+        ],
+        [
+          77.0132416,
+          12.755447
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-190",
+      "name": "Shrirangapattana",
+      "stateId": "ka",
+      "districtId": "ka-district-544",
+      "constituencyNumber": 190,
+      "bounds": [
+        [
+          76.5548675,
+          12.3018897
+        ],
+        [
+          76.980376,
+          12.5463888
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-191",
+      "name": "Nagamangala",
+      "stateId": "ka",
+      "districtId": "ka-district-544",
+      "constituencyNumber": 191,
+      "bounds": [
+        [
+          76.5752023,
+          12.6448615
+        ],
+        [
+          77.0112428,
+          13.0555132
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-192",
+      "name": "Krishnarajpet",
+      "stateId": "ka",
+      "districtId": "ka-district-544",
+      "constituencyNumber": 192,
+      "bounds": [
+        [
+          76.3291788,
+          12.4515982
+        ],
+        [
+          76.6154059,
+          12.8661287
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-193",
+      "name": "Shravanabelagola",
+      "stateId": "ka",
+      "districtId": "ka-district-539",
+      "constituencyNumber": 193,
+      "bounds": [
+        [
+          76.3173879,
+          12.7669782
+        ],
+        [
+          76.6339738,
+          13.1727361
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-194",
+      "name": "Arsikere",
+      "stateId": "ka",
+      "districtId": "ka-district-539",
+      "constituencyNumber": 194,
+      "bounds": [
+        [
+          76.0951245,
+          13.0787315
+        ],
+        [
+          76.4291338,
+          13.547937
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-195",
+      "name": "Belur",
+      "stateId": "ka",
+      "districtId": "ka-district-539",
+      "constituencyNumber": 195,
+      "bounds": [
+        [
+          75.725399,
+          12.9705375
+        ],
+        [
+          76.2204156,
+          13.3939053
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-196",
+      "name": "Hassan",
+      "stateId": "ka",
+      "districtId": "ka-district-539",
+      "constituencyNumber": 196,
+      "bounds": [
+        [
+          75.9624886,
+          12.9146817
+        ],
+        [
+          76.2115001,
+          13.214742
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-197",
+      "name": "Holenarasipur",
+      "stateId": "ka",
+      "districtId": "ka-district-539",
+      "constituencyNumber": 197,
+      "bounds": [
+        [
+          76.1016649,
+          12.7004687
+        ],
+        [
+          76.3807141,
+          13.1776462
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-198",
+      "name": "Arkalgud",
+      "stateId": "ka",
+      "districtId": "ka-district-539",
+      "constituencyNumber": 198,
+      "bounds": [
+        [
+          75.9329155,
+          12.5124532
+        ],
+        [
+          76.3629626,
+          12.8330019
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-199",
+      "name": "Sakleshpur (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-539",
+      "constituencyNumber": 199,
+      "bounds": [
+        [
+          75.5539524,
+          12.6691999
+        ],
+        [
+          76.1551862,
+          13.0688435
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-200",
+      "name": "Belthangady",
+      "stateId": "ka",
+      "districtId": "ka-dakshina-kannada",
+      "constituencyNumber": 200,
+      "bounds": [
+        [
+          75.047948,
+          12.816347
+        ],
+        [
+          75.5649688,
+          13.1846148
+        ]
+      ]
+    },
+    {
+      "id": "ka-moodabidri",
+      "name": "Moodabidri",
+      "stateId": "ka",
+      "districtId": "ka-dakshina-kannada",
+      "constituencyNumber": 201,
+      "bounds": [
+        [
+          74.7763278,
+          12.919616
+        ],
+        [
+          75.1272998,
+          13.1646522
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-202",
+      "name": "Mangalore City North",
+      "stateId": "ka",
+      "districtId": "ka-dakshina-kannada",
+      "constituencyNumber": 202,
+      "bounds": [
+        [
+          74.878213,
+          12.8589454
+        ],
+        [
+          75.011985,
+          13.0387137
+        ]
+      ]
+    },
+    {
+      "id": "ka-mangaluru-south",
+      "name": "Mangalore City South",
+      "stateId": "ka",
+      "districtId": "ka-dakshina-kannada",
+      "constituencyNumber": 203,
+      "bounds": [
+        [
+          74.7847372,
+          12.8272613
+        ],
+        [
+          74.9241978,
+          13.0317743
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-204",
+      "name": "Mangalore",
+      "stateId": "ka",
+      "districtId": "ka-dakshina-kannada",
+      "constituencyNumber": 204,
+      "bounds": [
+        [
+          74.8309535,
+          12.754305
+        ],
+        [
+          75.0166631,
+          12.9050013
+        ]
+      ]
+    },
+    {
+      "id": "ka-bantval",
+      "name": "Bantval",
+      "stateId": "ka",
+      "districtId": "ka-dakshina-kannada",
+      "constituencyNumber": 205,
+      "bounds": [
+        [
+          74.9481179,
+          12.7132601
+        ],
+        [
+          75.2042423,
+          13.0192934
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-206",
+      "name": "Puttur",
+      "stateId": "ka",
+      "districtId": "ka-dakshina-kannada",
+      "constituencyNumber": 206,
+      "bounds": [
+        [
+          75.0402846,
+          12.5685873
+        ],
+        [
+          75.3541795,
+          12.8569056
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-207",
+      "name": "Sullia (SC)",
+      "stateId": "ka",
+      "districtId": "ka-dakshina-kannada",
+      "constituencyNumber": 207,
+      "bounds": [
+        [
+          75.2698956,
+          12.4604234
+        ],
+        [
+          75.6888213,
+          12.8850451
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-208",
+      "name": "Madikeri",
+      "stateId": "ka",
+      "districtId": "ka-district-541",
+      "constituencyNumber": 208,
+      "bounds": [
+        [
+          75.5777691,
+          12.2761766
+        ],
+        [
+          76.0182432,
+          12.8345062
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-209",
+      "name": "Virajpet",
+      "stateId": "ka",
+      "districtId": "ka-district-541",
+      "constituencyNumber": 209,
+      "bounds": [
+        [
+          75.3655843,
+          11.9313757
+        ],
+        [
+          76.1890554,
+          12.5286102
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-210",
+      "name": "Piriyapatna",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 210,
+      "bounds": [
+        [
+          75.9086154,
+          12.1871371
+        ],
+        [
+          76.2432937,
+          12.5773041
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-211",
+      "name": "Krishnarajanagara",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 211,
+      "bounds": [
+        [
+          76.1338087,
+          12.3943651
+        ],
+        [
+          76.5023175,
+          12.6548247
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-212",
+      "name": "Hunsur",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 212,
+      "bounds": [
+        [
+          76.0995814,
+          12.1239469
+        ],
+        [
+          76.5170009,
+          12.4288913
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-213",
+      "name": "Heggadadevankote (ST)",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 213,
+      "bounds": [
+        [
+          76.1117035,
+          11.7382945
+        ],
+        [
+          76.5401891,
+          12.290206
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-214",
+      "name": "Nanjangud (SC)",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 214,
+      "bounds": [
+        [
+          76.432567,
+          11.856909
+        ],
+        [
+          76.8107883,
+          12.1536549
+        ]
+      ]
+    },
+    {
+      "id": "ka-chamundeshwari",
+      "name": "Chamundeshwari",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 215,
+      "bounds": [
+        [
+          76.4527633,
+          12.1223076
+        ],
+        [
+          76.7314858,
+          12.4538266
+        ]
+      ]
+    },
+    {
+      "id": "ka-krishnaraja",
+      "name": "Krishnaraja",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 216,
+      "bounds": [
+        [
+          76.6202894,
+          12.2560749
+        ],
+        [
+          76.6928975,
+          12.3307041
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-217",
+      "name": "Chamaraja",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 217,
+      "bounds": [
+        [
+          76.6083205,
+          12.3001127
+        ],
+        [
+          76.6552204,
+          12.3660332
+        ]
+      ]
+    },
+    {
+      "id": "ka-narasimharaja",
+      "name": "Narasimharaja",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 218,
+      "bounds": [
+        [
+          76.6453487,
+          12.3074913
+        ],
+        [
+          76.7019058,
+          12.3337579
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-219",
+      "name": "Varuna",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 219,
+      "bounds": [
+        [
+          76.5360881,
+          11.9958185
+        ],
+        [
+          76.939059,
+          12.3563308
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-220",
+      "name": "T.narasipur (SC)",
+      "stateId": "ka",
+      "districtId": "ka-mysuru",
+      "constituencyNumber": 220,
+      "bounds": [
+        [
+          76.8029291,
+          12.0982676
+        ],
+        [
+          77.1343477,
+          12.4421568
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-221",
+      "name": "Hanur",
+      "stateId": "ka",
+      "districtId": "ka-district-531",
+      "constituencyNumber": 221,
+      "bounds": [
+        [
+          77.1209435,
+          11.7609446
+        ],
+        [
+          77.7766962,
+          12.3143834
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-222",
+      "name": "Kollegal (SC)",
+      "stateId": "ka",
+      "districtId": "ka-district-531",
+      "constituencyNumber": 222,
+      "bounds": [
+        [
+          76.8311683,
+          11.8890469
+        ],
+        [
+          77.1828532,
+          12.1974358
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-223",
+      "name": "Chamarajanagar",
+      "stateId": "ka",
+      "districtId": "ka-district-531",
+      "constituencyNumber": 223,
+      "bounds": [
+        [
+          76.793288,
+          11.6741415
+        ],
+        [
+          77.1939272,
+          12.0376957
+        ]
+      ]
+    },
+    {
+      "id": "ka-ac-224",
+      "name": "Gundlupet",
+      "stateId": "ka",
+      "districtId": "ka-district-531",
+      "constituencyNumber": 224,
+      "bounds": [
+        [
+          76.4033629,
+          11.5947174
+        ],
+        [
+          76.8617633,
+          12.0273235
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-001",
+      "name": "Sirpur",
+      "stateId": "tg",
+      "districtId": "tg-district-699",
+      "constituencyNumber": 1,
+      "bounds": [
+        [
+          79.3638354,
+          19.1455948
+        ],
+        [
+          79.9797227,
+          19.608906
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-002",
+      "name": "Chennur (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-684",
+      "constituencyNumber": 2,
+      "bounds": [
+        [
+          79.3823501,
+          18.6706945
+        ],
+        [
+          79.9631686,
+          19.0580474
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-003",
+      "name": "Bellampalle (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-684",
+      "constituencyNumber": 3,
+      "bounds": [
+        [
+          79.2024672,
+          18.9340399
+        ],
+        [
+          79.9144987,
+          19.2629203
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-004",
+      "name": "Mancherial",
+      "stateId": "tg",
+      "districtId": "tg-district-684",
+      "constituencyNumber": 4,
+      "bounds": [
+        [
+          79.0791084,
+          18.8103653
+        ],
+        [
+          79.5141881,
+          19.1102093
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-005",
+      "name": "Asifabad (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-699",
+      "constituencyNumber": 5,
+      "bounds": [
+        [
+          78.7704432,
+          19.0419254
+        ],
+        [
+          79.540218,
+          19.670218
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-006",
+      "name": "Khanapur (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-680",
+      "constituencyNumber": 6,
+      "bounds": [
+        [
+          78.4850207,
+          18.977869
+        ],
+        [
+          79.1376099,
+          19.562545
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-007",
+      "name": "Adilabad",
+      "stateId": "tg",
+      "districtId": "tg-district-501",
+      "constituencyNumber": 7,
+      "bounds": [
+        [
+          78.4816095,
+          19.5241729
+        ],
+        [
+          78.8599873,
+          19.8244266
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-008",
+      "name": "Boath (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-501",
+      "constituencyNumber": 8,
+      "bounds": [
+        [
+          78.1717698,
+          19.1794567
+        ],
+        [
+          78.6403085,
+          19.9169177
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-009",
+      "name": "Nirmal",
+      "stateId": "tg",
+      "districtId": "tg-district-680",
+      "constituencyNumber": 9,
+      "bounds": [
+        [
+          78.1474422,
+          18.9427421
+        ],
+        [
+          78.6119416,
+          19.3260773
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-010",
+      "name": "Mudhole",
+      "stateId": "tg",
+      "districtId": "tg-district-680",
+      "constituencyNumber": 10,
+      "bounds": [
+        [
+          77.7619086,
+          18.8446831
+        ],
+        [
+          78.2394107,
+          19.3429233
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-011",
+      "name": "Armur",
+      "stateId": "tg",
+      "districtId": "tg-district-516",
+      "constituencyNumber": 11,
+      "bounds": [
+        [
+          78.0619185,
+          18.6775306
+        ],
+        [
+          78.3576874,
+          19.0164421
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-012",
+      "name": "Bodhan",
+      "stateId": "tg",
+      "districtId": "tg-district-516",
+      "constituencyNumber": 12,
+      "bounds": [
+        [
+          77.7300933,
+          18.5967453
+        ],
+        [
+          78.0854048,
+          18.9423355
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-013",
+      "name": "Jukkal (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-685",
+      "constituencyNumber": 13,
+      "bounds": [
+        [
+          77.5204668,
+          18.1590229
+        ],
+        [
+          77.9952012,
+          18.5688421
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-014",
+      "name": "Banswada",
+      "stateId": "tg",
+      "districtId": "tg-district-516",
+      "constituencyNumber": 14,
+      "bounds": [
+        [
+          77.7311354,
+          18.309037
+        ],
+        [
+          78.0506552,
+          18.6691712
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-015",
+      "name": "Yellareddy",
+      "stateId": "tg",
+      "districtId": "tg-district-685",
+      "constituencyNumber": 15,
+      "bounds": [
+        [
+          77.8947827,
+          18.0600893
+        ],
+        [
+          78.4057218,
+          18.5103934
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-016",
+      "name": "Kamareddy",
+      "stateId": "tg",
+      "districtId": "tg-district-685",
+      "constituencyNumber": 16,
+      "bounds": [
+        [
+          78.3105323,
+          18.1208756
+        ],
+        [
+          78.5695668,
+          18.4843982
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-017",
+      "name": "Nizamabad (Urban)",
+      "stateId": "tg",
+      "districtId": "tg-district-516",
+      "constituencyNumber": 17,
+      "bounds": [
+        [
+          78.0253352,
+          18.60471
+        ],
+        [
+          78.1142219,
+          18.6865064
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-018",
+      "name": "Nizamabad (Rural)",
+      "stateId": "tg",
+      "districtId": "tg-district-516",
+      "constituencyNumber": 18,
+      "bounds": [
+        [
+          77.993857,
+          18.4366432
+        ],
+        [
+          78.6238228,
+          18.8048401
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-019",
+      "name": "Balkonda",
+      "stateId": "tg",
+      "districtId": "tg-district-516",
+      "constituencyNumber": 19,
+      "bounds": [
+        [
+          78.293779,
+          18.5848939
+        ],
+        [
+          78.669917,
+          19.0040289
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-020",
+      "name": "Koratla",
+      "stateId": "tg",
+      "districtId": "tg-district-681",
+      "constituencyNumber": 20,
+      "bounds": [
+        [
+          78.5142017,
+          18.7230623
+        ],
+        [
+          78.8045089,
+          19.0360687
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-021",
+      "name": "Jagtial",
+      "stateId": "tg",
+      "districtId": "tg-district-681",
+      "constituencyNumber": 21,
+      "bounds": [
+        [
+          78.7317476,
+          18.7300485
+        ],
+        [
+          79.0259476,
+          19.0777108
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-022",
+      "name": "Dharmapuri (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-681",
+      "constituencyNumber": 22,
+      "bounds": [
+        [
+          78.9517384,
+          18.611533
+        ],
+        [
+          79.3308052,
+          19.0757698
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-023",
+      "name": "Ramagundam",
+      "stateId": "tg",
+      "districtId": "tg-district-682",
+      "constituencyNumber": 23,
+      "bounds": [
+        [
+          79.2914631,
+          18.6766094
+        ],
+        [
+          79.5451103,
+          18.8575611
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-024",
+      "name": "Manthani",
+      "stateId": "tg",
+      "districtId": "tg-district-687",
+      "constituencyNumber": 24,
+      "bounds": [
+        [
+          79.4128512,
+          18.349415
+        ],
+        [
+          80.3446448,
+          18.8711318
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-025",
+      "name": "Peddapalle",
+      "stateId": "tg",
+      "districtId": "tg-district-682",
+      "constituencyNumber": 25,
+      "bounds": [
+        [
+          79.1856188,
+          18.379305
+        ],
+        [
+          79.5945063,
+          18.6968322
+        ]
+      ]
+    },
+    {
+      "id": "tg-karimnagar",
+      "name": "Karimnagar",
+      "stateId": "tg",
+      "districtId": "tg-karimnagar",
+      "constituencyNumber": 26,
+      "bounds": [
+        [
+          78.9907552,
+          18.3922677
+        ],
+        [
+          79.2404933,
+          18.5302275
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-027",
+      "name": "Choppadandi (SC)",
+      "stateId": "tg",
+      "districtId": "tg-karimnagar",
+      "constituencyNumber": 27,
+      "bounds": [
+        [
+          78.7888524,
+          18.3970915
+        ],
+        [
+          79.2289793,
+          18.7605781
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-028",
+      "name": "Vemulawada",
+      "stateId": "tg",
+      "districtId": "tg-district-683",
+      "constituencyNumber": 28,
+      "bounds": [
+        [
+          78.5976151,
+          18.4077354
+        ],
+        [
+          78.9317922,
+          18.8903976
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-029",
+      "name": "Sircilla",
+      "stateId": "tg",
+      "districtId": "tg-district-683",
+      "constituencyNumber": 29,
+      "bounds": [
+        [
+          78.5212911,
+          18.2146772
+        ],
+        [
+          78.8781891,
+          18.5549079
+        ]
+      ]
+    },
+    {
+      "id": "tg-manakondur",
+      "name": "Manakondur (SC)",
+      "stateId": "tg",
+      "districtId": "tg-karimnagar",
+      "constituencyNumber": 30,
+      "bounds": [
+        [
+          78.8284266,
+          18.1947765
+        ],
+        [
+          79.4065476,
+          18.4760282
+        ]
+      ]
+    },
+    {
+      "id": "tg-huzurabad",
+      "name": "Huzurabad",
+      "stateId": "tg",
+      "districtId": "tg-karimnagar",
+      "constituencyNumber": 31,
+      "bounds": [
+        [
+          79.3267355,
+          18.1209378
+        ],
+        [
+          79.6131903,
+          18.441232
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-032",
+      "name": "Husnabad",
+      "stateId": "tg",
+      "districtId": "tg-district-692",
+      "constituencyNumber": 32,
+      "bounds": [
+        [
+          79.0045694,
+          17.9836716
+        ],
+        [
+          79.5689514,
+          18.285212
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-033",
+      "name": "Siddipet",
+      "stateId": "tg",
+      "districtId": "tg-district-692",
+      "constituencyNumber": 33,
+      "bounds": [
+        [
+          78.6219,
+          18.0032863
+        ],
+        [
+          79.1266918,
+          18.2627629
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-034",
+      "name": "Medak",
+      "stateId": "tg",
+      "districtId": "tg-district-513",
+      "constituencyNumber": 34,
+      "bounds": [
+        [
+          77.992629,
+          17.8946097
+        ],
+        [
+          78.5865293,
+          18.2169905
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-035",
+      "name": "Narayankhed",
+      "stateId": "tg",
+      "districtId": "tg-district-691",
+      "constituencyNumber": 35,
+      "bounds": [
+        [
+          77.5476692,
+          17.8793306
+        ],
+        [
+          77.9992613,
+          18.2860858
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-036",
+      "name": "Andole (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-691",
+      "constituencyNumber": 36,
+      "bounds": [
+        [
+          77.668014,
+          17.6221486
+        ],
+        [
+          78.1581794,
+          18.0599367
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-037",
+      "name": "Narsapur",
+      "stateId": "tg",
+      "districtId": "tg-district-513",
+      "constituencyNumber": 37,
+      "bounds": [
+        [
+          78.058436,
+          17.6350971
+        ],
+        [
+          78.4924838,
+          18.0152902
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-038",
+      "name": "Zahirabad (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-691",
+      "constituencyNumber": 38,
+      "bounds": [
+        [
+          77.4429723,
+          17.5081625
+        ],
+        [
+          77.8004704,
+          17.9673769
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-039",
+      "name": "Sangareddy",
+      "stateId": "tg",
+      "districtId": "tg-district-691",
+      "constituencyNumber": 39,
+      "bounds": [
+        [
+          77.8229161,
+          17.4488601
+        ],
+        [
+          78.2447863,
+          17.7244242
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-040",
+      "name": "Patancheru",
+      "stateId": "tg",
+      "districtId": "tg-district-691",
+      "constituencyNumber": 40,
+      "bounds": [
+        [
+          78.1432696,
+          17.4277432
+        ],
+        [
+          78.4486567,
+          17.7524619
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-041",
+      "name": "Dubbak",
+      "stateId": "tg",
+      "districtId": "tg-district-692",
+      "constituencyNumber": 41,
+      "bounds": [
+        [
+          78.4043864,
+          17.8203488
+        ],
+        [
+          78.7638175,
+          18.2567121
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-042",
+      "name": "Gajwel",
+      "stateId": "tg",
+      "districtId": "tg-district-692",
+      "constituencyNumber": 42,
+      "bounds": [
+        [
+          78.4424749,
+          17.6679542
+        ],
+        [
+          78.956395,
+          18.0511477
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-043",
+      "name": "Medchal",
+      "stateId": "tg",
+      "districtId": "tg-district-700",
+      "constituencyNumber": 43,
+      "bounds": [
+        [
+          78.371512,
+          17.370723
+        ],
+        [
+          78.7603374,
+          17.7082036
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-044",
+      "name": "Malkajgiri",
+      "stateId": "tg",
+      "districtId": "tg-district-700",
+      "constituencyNumber": 44,
+      "bounds": [
+        [
+          78.4242524,
+          17.443141
+        ],
+        [
+          78.5981393,
+          17.5395566
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-045",
+      "name": "Quthbullapur",
+      "stateId": "tg",
+      "districtId": "tg-district-700",
+      "constituencyNumber": 45,
+      "bounds": [
+        [
+          78.3470055,
+          17.4592204
+        ],
+        [
+          78.4770065,
+          17.6082796
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-046",
+      "name": "Kukatpalle",
+      "stateId": "tg",
+      "districtId": "tg-district-700",
+      "constituencyNumber": 46,
+      "bounds": [
+        [
+          78.364809,
+          17.4178244
+        ],
+        [
+          78.4783205,
+          17.5062953
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-047",
+      "name": "Uppal",
+      "stateId": "tg",
+      "districtId": "tg-district-700",
+      "constituencyNumber": 47,
+      "bounds": [
+        [
+          78.5185089,
+          17.3417001
+        ],
+        [
+          78.6452601,
+          17.4940811
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-048",
+      "name": "Ibrahimpatnam",
+      "stateId": "tg",
+      "districtId": "tg-rangareddy",
+      "constituencyNumber": 48,
+      "bounds": [
+        [
+          78.5319748,
+          16.9320568
+        ],
+        [
+          78.8442807,
+          17.3875676
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-049",
+      "name": "Lal Bahadur Nagar",
+      "stateId": "tg",
+      "districtId": "tg-rangareddy",
+      "constituencyNumber": 49,
+      "bounds": [
+        [
+          78.5077738,
+          17.3150654
+        ],
+        [
+          78.5985303,
+          17.3710024
+        ]
+      ]
+    },
+    {
+      "id": "tg-maheshwaram",
+      "name": "Maheswaram",
+      "stateId": "tg",
+      "districtId": "tg-rangareddy",
+      "constituencyNumber": 50,
+      "bounds": [
+        [
+          78.3271751,
+          16.9777593
+        ],
+        [
+          78.5800568,
+          17.3177648
+        ]
+      ]
+    },
+    {
+      "id": "tg-rajendranagar",
+      "name": "Rajendranagar",
+      "stateId": "tg",
+      "districtId": "tg-rangareddy",
+      "constituencyNumber": 51,
+      "bounds": [
+        [
+          78.2579268,
+          17.1287198
+        ],
+        [
+          78.4719673,
+          17.4066821
+        ]
+      ]
+    },
+    {
+      "id": "tg-serilingampally",
+      "name": "Serilingampally",
+      "stateId": "tg",
+      "districtId": "tg-rangareddy",
+      "constituencyNumber": 52,
+      "bounds": [
+        [
+          78.2338388,
+          17.3810334
+        ],
+        [
+          78.4001923,
+          17.5218533
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-053",
+      "name": "Chevella (SC)",
+      "stateId": "tg",
+      "districtId": "tg-rangareddy",
+      "constituencyNumber": 53,
+      "bounds": [
+        [
+          78.0020283,
+          17.0877725
+        ],
+        [
+          78.3817272,
+          17.5187342
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-054",
+      "name": "Pargi",
+      "stateId": "tg",
+      "districtId": "tg-district-698",
+      "constituencyNumber": 54,
+      "bounds": [
+        [
+          77.7302384,
+          16.8449297
+        ],
+        [
+          78.0735413,
+          17.3226967
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-055",
+      "name": "Vicarabad (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-698",
+      "constituencyNumber": 55,
+      "bounds": [
+        [
+          77.6130464,
+          17.2170836
+        ],
+        [
+          78.0430135,
+          17.6389756
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-056",
+      "name": "Tandur",
+      "stateId": "tg",
+      "districtId": "tg-district-698",
+      "constituencyNumber": 56,
+      "bounds": [
+        [
+          77.3624879,
+          17.1066618
+        ],
+        [
+          77.7653096,
+          17.4564406
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-057",
+      "name": "Musheerabad",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 57,
+      "bounds": [
+        [
+          78.4683611,
+          17.3938531
+        ],
+        [
+          78.518493,
+          17.4340067
+        ]
+      ]
+    },
+    {
+      "id": "tg-malakpet",
+      "name": "Malakpet",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 58,
+      "bounds": [
+        [
+          78.4902281,
+          17.3546244
+        ],
+        [
+          78.5323463,
+          17.3850319
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-059",
+      "name": "Amberpet",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 59,
+      "bounds": [
+        [
+          78.4988768,
+          17.3763485
+        ],
+        [
+          78.5522552,
+          17.4430466
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-060",
+      "name": "Khairatabad",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 60,
+      "bounds": [
+        [
+          78.4657335,
+          17.3681853
+        ],
+        [
+          78.5080845,
+          17.4059569
+        ]
+      ]
+    },
+    {
+      "id": "tg-jubilee-hills",
+      "name": "Jubilee Hills",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 61,
+      "bounds": [
+        [
+          78.4264058,
+          17.399888
+        ],
+        [
+          78.4775655,
+          17.4389115
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-062",
+      "name": "Sanathnagar",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 62,
+      "bounds": [
+        [
+          78.3852874,
+          17.394476
+        ],
+        [
+          78.4559071,
+          17.4426479
+        ]
+      ]
+    },
+    {
+      "id": "tg-nampally",
+      "name": "Nampally",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 63,
+      "bounds": [
+        [
+          78.428675,
+          17.3781765
+        ],
+        [
+          78.475216,
+          17.4074838
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-064",
+      "name": "Karwan",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 64,
+      "bounds": [
+        [
+          78.3733358,
+          17.3692476
+        ],
+        [
+          78.4387047,
+          17.403899
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-065",
+      "name": "Goshamahal",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 65,
+      "bounds": [
+        [
+          78.4520618,
+          17.3429212
+        ],
+        [
+          78.4815332,
+          17.3826308
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-066",
+      "name": "Charminar",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 66,
+      "bounds": [
+        [
+          78.478563,
+          17.341873
+        ],
+        [
+          78.5331928,
+          17.3784972
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-067",
+      "name": "Chandrayangutta",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 67,
+      "bounds": [
+        [
+          78.4668098,
+          17.3082419
+        ],
+        [
+          78.5126388,
+          17.3392591
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-068",
+      "name": "Yakutpura",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 68,
+      "bounds": [
+        [
+          78.4658159,
+          17.3322282
+        ],
+        [
+          78.5083301,
+          17.3604781
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-069",
+      "name": "Bahadurpura",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 69,
+      "bounds": [
+        [
+          78.4355187,
+          17.3193849
+        ],
+        [
+          78.4794961,
+          17.3812114
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-070",
+      "name": "Secunderabad",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 70,
+      "bounds": [
+        [
+          78.4953657,
+          17.4111967
+        ],
+        [
+          78.5469713,
+          17.4446013
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-071",
+      "name": "Secunderabad Cantt. (SC",
+      "stateId": "tg",
+      "districtId": "tg-hyderabad",
+      "constituencyNumber": 71,
+      "bounds": [
+        [
+          78.4690436,
+          17.4223117
+        ],
+        [
+          78.5500633,
+          17.4882931
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-072",
+      "name": "Kodangal",
+      "stateId": "tg",
+      "districtId": "tg-district-721",
+      "constituencyNumber": 72,
+      "bounds": [
+        [
+          77.4628978,
+          16.7637416
+        ],
+        [
+          77.7904375,
+          17.2363107
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-073",
+      "name": "Narayanpet",
+      "stateId": "tg",
+      "districtId": "tg-district-721",
+      "constituencyNumber": 73,
+      "bounds": [
+        [
+          77.4260312,
+          16.5563279
+        ],
+        [
+          77.9187364,
+          16.9179316
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-074",
+      "name": "Mahbubnagar",
+      "stateId": "tg",
+      "districtId": "tg-district-512",
+      "constituencyNumber": 74,
+      "bounds": [
+        [
+          77.7535203,
+          16.6328833
+        ],
+        [
+          78.0911872,
+          16.8918358
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-075",
+      "name": "Jadcherla",
+      "stateId": "tg",
+      "districtId": "tg-district-512",
+      "constituencyNumber": 75,
+      "bounds": [
+        [
+          77.9377965,
+          16.6450966
+        ],
+        [
+          78.4818693,
+          17.0010773
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-076",
+      "name": "Devarkadra",
+      "stateId": "tg",
+      "districtId": "tg-district-693",
+      "constituencyNumber": 76,
+      "bounds": [
+        [
+          77.7211256,
+          16.2350619
+        ],
+        [
+          78.1410282,
+          16.7298305
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-077",
+      "name": "Makthal",
+      "stateId": "tg",
+      "districtId": "tg-district-721",
+      "constituencyNumber": 77,
+      "bounds": [
+        [
+          77.2358026,
+          16.2103544
+        ],
+        [
+          77.9189921,
+          16.7239816
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-078",
+      "name": "Wanaparthy",
+      "stateId": "tg",
+      "districtId": "tg-district-693",
+      "constituencyNumber": 78,
+      "bounds": [
+        [
+          77.8913356,
+          16.0272218
+        ],
+        [
+          78.3112178,
+          16.6139339
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-079",
+      "name": "Gadwal",
+      "stateId": "tg",
+      "districtId": "tg-district-695",
+      "constituencyNumber": 79,
+      "bounds": [
+        [
+          77.4856242,
+          15.9910828
+        ],
+        [
+          77.9259553,
+          16.3553194
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-080",
+      "name": "Alampur (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-695",
+      "constituencyNumber": 80,
+      "bounds": [
+        [
+          77.509621,
+          15.8363563
+        ],
+        [
+          78.2532242,
+          16.1807763
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-081",
+      "name": "Nagarkurnool",
+      "stateId": "tg",
+      "districtId": "tg-district-694",
+      "constituencyNumber": 81,
+      "bounds": [
+        [
+          78.0998434,
+          16.2959381
+        ],
+        [
+          78.4854845,
+          16.7469276
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-082",
+      "name": "Achampet (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-694",
+      "constituencyNumber": 82,
+      "bounds": [
+        [
+          78.388123,
+          16.0084947
+        ],
+        [
+          79.2343427,
+          16.7607235
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-083",
+      "name": "Kalwakurthy",
+      "stateId": "tg",
+      "districtId": "tg-district-694",
+      "constituencyNumber": 83,
+      "bounds": [
+        [
+          78.3100495,
+          16.5016719
+        ],
+        [
+          78.802182,
+          17.0184513
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-084",
+      "name": "Shadnagar",
+      "stateId": "tg",
+      "districtId": "tg-rangareddy",
+      "constituencyNumber": 84,
+      "bounds": [
+        [
+          77.9228591,
+          16.8595459
+        ],
+        [
+          78.406073,
+          17.2247634
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-085",
+      "name": "Kollapur",
+      "stateId": "tg",
+      "districtId": "tg-district-694",
+      "constituencyNumber": 85,
+      "bounds": [
+        [
+          78.0228988,
+          15.9489229
+        ],
+        [
+          78.6619717,
+          16.3790138
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-086",
+      "name": "Devarakonda (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-514",
+      "constituencyNumber": 86,
+      "bounds": [
+        [
+          78.6107541,
+          16.356655
+        ],
+        [
+          79.3177876,
+          16.9850684
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-087",
+      "name": "Nagarjuna Sagar",
+      "stateId": "tg",
+      "districtId": "tg-district-514",
+      "constituencyNumber": 87,
+      "bounds": [
+        [
+          79.0150872,
+          16.5746196
+        ],
+        [
+          79.577685,
+          16.9733147
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-088",
+      "name": "Miryalaguda",
+      "stateId": "tg",
+      "districtId": "tg-district-514",
+      "constituencyNumber": 88,
+      "bounds": [
+        [
+          79.4304976,
+          16.6220151
+        ],
+        [
+          79.6988128,
+          17.1252134
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-089",
+      "name": "Huzurnagar",
+      "stateId": "tg",
+      "districtId": "tg-district-696",
+      "constituencyNumber": 89,
+      "bounds": [
+        [
+          79.618952,
+          16.6316149
+        ],
+        [
+          80.072921,
+          17.0257924
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-090",
+      "name": "Kodad",
+      "stateId": "tg",
+      "districtId": "tg-district-696",
+      "constituencyNumber": 90,
+      "bounds": [
+        [
+          79.719986,
+          16.9039045
+        ],
+        [
+          80.062009,
+          17.3237429
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-091",
+      "name": "Suryapet",
+      "stateId": "tg",
+      "districtId": "tg-district-696",
+      "constituencyNumber": 91,
+      "bounds": [
+        [
+          79.4904452,
+          16.986127
+        ],
+        [
+          79.8114188,
+          17.3390163
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-092",
+      "name": "Nalgonda",
+      "stateId": "tg",
+      "districtId": "tg-district-514",
+      "constituencyNumber": 92,
+      "bounds": [
+        [
+          79.1006659,
+          16.8838153
+        ],
+        [
+          79.5017662,
+          17.1701776
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-093",
+      "name": "Munugode",
+      "stateId": "tg",
+      "districtId": "tg-district-514",
+      "constituencyNumber": 93,
+      "bounds": [
+        [
+          78.7411373,
+          16.7535118
+        ],
+        [
+          79.1653575,
+          17.3567702
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-094",
+      "name": "Bhongir",
+      "stateId": "tg",
+      "districtId": "tg-district-697",
+      "constituencyNumber": 94,
+      "bounds": [
+        [
+          78.7062799,
+          17.3054072
+        ],
+        [
+          79.1846519,
+          17.5994096
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-095",
+      "name": "Nakrekal (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-514",
+      "constituencyNumber": 95,
+      "bounds": [
+        [
+          78.9766312,
+          17.087281
+        ],
+        [
+          79.5924532,
+          17.3877953
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-096",
+      "name": "Thungathurthi (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-696",
+      "constituencyNumber": 96,
+      "bounds": [
+        [
+          79.1838936,
+          17.2292414
+        ],
+        [
+          79.8037787,
+          17.5289363
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-097",
+      "name": "Alair",
+      "stateId": "tg",
+      "districtId": "tg-district-697",
+      "constituencyNumber": 97,
+      "bounds": [
+        [
+          78.6765661,
+          17.3723034
+        ],
+        [
+          79.3666848,
+          17.8125621
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-098",
+      "name": "Jangoan",
+      "stateId": "tg",
+      "districtId": "tg-district-692",
+      "constituencyNumber": 98,
+      "bounds": [
+        [
+          78.827456,
+          17.6686072
+        ],
+        [
+          79.2630283,
+          18.0365356
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-099",
+      "name": "Ghanpur (Station) (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-689",
+      "constituencyNumber": 99,
+      "bounds": [
+        [
+          79.1295741,
+          17.5754641
+        ],
+        [
+          79.5373595,
+          18.0660189
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-100",
+      "name": "Palakurthi",
+      "stateId": "tg",
+      "districtId": "tg-district-689",
+      "constituencyNumber": 100,
+      "bounds": [
+        [
+          79.2128121,
+          17.4865994
+        ],
+        [
+          79.7373823,
+          17.7736078
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-101",
+      "name": "Dornakal (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-688",
+      "constituencyNumber": 101,
+      "bounds": [
+        [
+          79.6565073,
+          17.3245203
+        ],
+        [
+          80.1702655,
+          17.5822382
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-102",
+      "name": "Mahabubabad (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-688",
+      "constituencyNumber": 102,
+      "bounds": [
+        [
+          79.713655,
+          17.5126041
+        ],
+        [
+          80.1409556,
+          17.8831164
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-103",
+      "name": "Narsampet",
+      "stateId": "tg",
+      "districtId": "tg-warangal",
+      "constituencyNumber": 103,
+      "bounds": [
+        [
+          79.7485022,
+          17.7001892
+        ],
+        [
+          80.0172313,
+          18.1114983
+        ]
+      ]
+    },
+    {
+      "id": "tg-parkal",
+      "name": "Parkal",
+      "stateId": "tg",
+      "districtId": "tg-district-686",
+      "constituencyNumber": 104,
+      "bounds": [
+        [
+          79.5797412,
+          17.8279785
+        ],
+        [
+          79.8512011,
+          18.2642723
+        ]
+      ]
+    },
+    {
+      "id": "tg-warangal-west",
+      "name": "Warangal West",
+      "stateId": "tg",
+      "districtId": "tg-district-686",
+      "constituencyNumber": 105,
+      "bounds": [
+        [
+          79.5140275,
+          17.9440486
+        ],
+        [
+          79.6211011,
+          18.0319516
+        ]
+      ]
+    },
+    {
+      "id": "tg-warangal-east",
+      "name": "Warangal East",
+      "stateId": "tg",
+      "districtId": "tg-warangal",
+      "constituencyNumber": 106,
+      "bounds": [
+        [
+          79.5680894,
+          17.9163695
+        ],
+        [
+          79.6527194,
+          18.000222
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-107",
+      "name": "Waradhanapet (SC)",
+      "stateId": "tg",
+      "districtId": "tg-warangal",
+      "constituencyNumber": 107,
+      "bounds": [
+        [
+          79.4446478,
+          17.6924395
+        ],
+        [
+          79.782949,
+          18.1486941
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-108",
+      "name": "Bhupalpalle",
+      "stateId": "tg",
+      "districtId": "tg-district-687",
+      "constituencyNumber": 108,
+      "bounds": [
+        [
+          79.5592715,
+          18.0887035
+        ],
+        [
+          80.1168931,
+          18.5247934
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-109",
+      "name": "Mulug (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-720",
+      "constituencyNumber": 109,
+      "bounds": [
+        [
+          79.8265292,
+          17.7082086
+        ],
+        [
+          80.6667775,
+          18.6107051
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-110",
+      "name": "Pinapaka (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-690",
+      "constituencyNumber": 110,
+      "bounds": [
+        [
+          80.2478526,
+          17.5683799
+        ],
+        [
+          81.0260939,
+          18.1596805
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-111",
+      "name": "Yellandu (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-690",
+      "constituencyNumber": 111,
+      "bounds": [
+        [
+          80.0448139,
+          17.3614267
+        ],
+        [
+          80.6252916,
+          17.7630765
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-112",
+      "name": "Khammam",
+      "stateId": "tg",
+      "districtId": "tg-district-509",
+      "constituencyNumber": 112,
+      "bounds": [
+        [
+          80.1472038,
+          17.192464
+        ],
+        [
+          80.3674242,
+          17.4074368
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-113",
+      "name": "Palair",
+      "stateId": "tg",
+      "districtId": "tg-district-509",
+      "constituencyNumber": 113,
+      "bounds": [
+        [
+          79.8015408,
+          16.9681568
+        ],
+        [
+          80.1913526,
+          17.4065908
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-114",
+      "name": "Madhira (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-509",
+      "constituencyNumber": 114,
+      "bounds": [
+        [
+          80.0284879,
+          16.7688058
+        ],
+        [
+          80.6128486,
+          17.2437012
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-115",
+      "name": "Wyra (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-509",
+      "constituencyNumber": 115,
+      "bounds": [
+        [
+          80.2153144,
+          17.0764455
+        ],
+        [
+          80.6434831,
+          17.5681307
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-116",
+      "name": "Sathupalle (SC)",
+      "stateId": "tg",
+      "districtId": "tg-district-509",
+      "constituencyNumber": 116,
+      "bounds": [
+        [
+          80.3922012,
+          17.0303469
+        ],
+        [
+          80.9353889,
+          17.3509536
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-117",
+      "name": "Kothagudem",
+      "stateId": "tg",
+      "districtId": "tg-district-690",
+      "constituencyNumber": 117,
+      "bounds": [
+        [
+          80.4814615,
+          17.3974342
+        ],
+        [
+          80.9224733,
+          17.8488638
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-118",
+      "name": "Aswaraopeta (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-690",
+      "constituencyNumber": 118,
+      "bounds": [
+        [
+          80.5786316,
+          17.1906478
+        ],
+        [
+          81.5031067,
+          17.6073111
+        ]
+      ]
+    },
+    {
+      "id": "tg-ac-119",
+      "name": "Bhadrachalam (ST)",
+      "stateId": "tg",
+      "districtId": "tg-district-690",
+      "constituencyNumber": 119,
+      "bounds": [
+        [
+          80.3735994,
+          17.4662441
+        ],
+        [
+          81.8113643,
+          18.6311543
+        ]
+      ]
+    }
+  ]
+}

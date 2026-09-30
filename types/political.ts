@@ -27,7 +27,7 @@ export interface District {
   slug: string;
   constituencyCount: number;
   bounds: Bounds;
-  polygon: Position[][];
+  polygon?: Position[][];
 }
 
 export interface Constituency {
@@ -37,7 +37,7 @@ export interface Constituency {
   districtId: string;
   constituencyNumber: number;
   bounds: Bounds;
-  polygon: Position[][];
+  polygon?: Position[][];
 }
 
 export interface MLA {
