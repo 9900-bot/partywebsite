@@ -1,0 +1,24 @@
+{
+  "districts": [
+    {
+      "id": "ka-bengaluru-urban",
+      "stateId": "29",
+      "name": "Bengaluru Urban",
+      "slug": "bengaluru-urban",
+      "sourceName": "District Bengaluru Urban, Government of Karnataka",
+      "sourceUrl": "https://bengaluruurban.nic.in/en/constituencies/",
+      "lastVerifiedAt": "2026-09-29"
+    }
+  ],
+  "constituencies": [
+    { "id": "ka-ac-150", "stateId": "29", "districtId": "ka-bengaluru-urban", "name": "Yelahanka", "number": 150, "slug": "yelahanka", "sourceName": "District Bengaluru Urban, Government of Karnataka", "sourceUrl": "https://bengaluruurban.nic.in/en/constituencies/", "lastVerifiedAt": "2026-09-29" },
+    { "id": "ka-ac-152", "stateId": "29", "districtId": "ka-bengaluru-urban", "name": "Byatarayanapura", "number": 152, "slug": "byatarayanapura", "sourceName": "District Bengaluru Urban, Government of Karnataka", "sourceUrl": "https://bengaluruurban.nic.in/en/constituencies/", "lastVerifiedAt": "2026-09-29" },
+    { "id": "ka-ac-153", "stateId": "29", "districtId": "ka-bengaluru-urban", "name": "Yeshwanthapura", "number": 153, "slug": "yeshwanthapura", "sourceName": "District Bengaluru Urban, Government of Karnataka", "sourceUrl": "https://bengaluruurban.nic.in/en/constituencies/", "lastVerifiedAt": "2026-09-29" },
+    { "id": "ka-ac-155", "stateId": "29", "districtId": "ka-bengaluru-urban", "name": "Dasarahalli", "number": 155, "slug": "dasarahalli", "sourceName": "District Bengaluru Urban, Government of Karnataka", "sourceUrl": "https://bengaluruurban.nic.in/en/constituencies/", "lastVerifiedAt": "2026-09-29" },
+    { "id": "ka-ac-174", "stateId": "29", "districtId": "ka-bengaluru-urban", "name": "Mahadevapura", "number": 174, "slug": "mahadevapura", "sourceName": "District Bengaluru Urban, Government of Karnataka", "sourceUrl": "https://bengaluruurban.nic.in/en/constituencies/", "lastVerifiedAt": "2026-09-29" },
+    { "id": "ka-ac-176", "stateId": "29", "districtId": "ka-bengaluru-urban", "name": "Bangalore South", "number": 176, "slug": "bangalore-south", "sourceName": "District Bengaluru Urban, Government of Karnataka", "sourceUrl": "https://bengaluruurban.nic.in/en/constituencies/", "lastVerifiedAt": "2026-09-29" },
+    { "id": "ka-ac-177", "stateId": "29", "districtId": "ka-bengaluru-urban", "name": "Anekal", "number": 177, "slug": "anekal", "sourceName": "District Bengaluru Urban, Government of Karnataka", "sourceUrl": "https://bengaluruurban.nic.in/en/constituencies/", "lastVerifiedAt": "2026-09-29" }
+  ],
+  "representatives": [],
+  "parties": []
+}

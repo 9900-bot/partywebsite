@@ -1,0 +1,40 @@
+{
+  "sources": [],
+  "imports": [],
+  "records": [
+    {
+      "id": "test-record-not-civic-data",
+      "slug": "test-record-not-civic-data",
+      "recordType": "synthetic_schema_test",
+      "title": "TEST RECORD — NOT CIVIC DATA",
+      "geographicScope": "none",
+      "state": null,
+      "district": null,
+      "constituency": null,
+      "verificationStatus": "pending_verification",
+      "reviewStatus": "pending_review",
+      "publicationStatus": "unpublished",
+      "sourceId": null,
+      "sourceUrl": null,
+      "createdAt": "2026-09-29T00:00:00.000Z",
+      "updatedAt": "2026-09-29T00:00:00.000Z",
+      "lastVerifiedAt": null,
+      "rejectionReason": null,
+      "synthetic": true,
+      "validationResults": ["Schema valid", "Synthetic marker present", "Not eligible for public publication"]
+    }
+  ],
+  "auditLog": [
+    {
+      "id": "test-record-created",
+      "recordId": "test-record-not-civic-data",
+      "action": "created",
+      "previousStatus": null,
+      "newStatus": "pending_review",
+      "actor": "system",
+      "timestamp": "2026-09-29T00:00:00.000Z",
+      "reason": "Synthetic record created to exercise the Day 5 review interface.",
+      "metadata": { "synthetic": true }
+    }
+  ]
+}

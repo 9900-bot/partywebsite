@@ -1,0 +1,1 @@
+export function Footer() { return <footer className="mt-20 border-t border-[#dfe4eb]"><div className="shell flex flex-wrap justify-between gap-3 py-7 text-sm text-[#5b6475]"><span>© {new Date().getFullYear()} Civic Atlas India</span><span>Public information · Source-led · Consent-aware</span></div></footer>; }

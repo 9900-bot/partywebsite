@@ -1,0 +1,21 @@
+[
+  {
+    "id": "verified-source-catalog-pending",
+    "title": "Verified public communications catalog pending",
+    "summary": "No source-backed public communication records have been imported for this release. This placeholder will be replaced only after an authoritative source is established.",
+    "category": "Catalog status",
+    "scope": "national",
+    "state": null,
+    "district": null,
+    "constituency": null,
+    "publishedAt": null,
+    "updatedAt": null,
+    "verificationStatus": "pending_verification",
+    "sourceName": null,
+    "sourceUrl": null,
+    "sourcePublishedAt": null,
+    "lastVerifiedAt": null,
+    "reviewStatus": "approved",
+    "publicationStatus": "published"
+  }
+]

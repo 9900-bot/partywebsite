@@ -1,0 +1,3 @@
+export function BoundaryPlaceholder({ level }: { level: "district" | "constituency" }) {
+  return <section className="grid min-h-64 place-items-center border border-dashed border-[#b9c2ce] bg-[#eef2f5] p-8 text-center" aria-label={`${level} boundary map status`}><div><span className="eyebrow">Boundary layer pending</span><h2 className="mt-3 text-2xl font-black tracking-[-.035em]">Verified {level} geometry is not yet available.</h2><p className="mx-auto mt-3 max-w-xl leading-7 text-[#5b6475]">The map slot is ready for an authoritative GeoJSON layer. No boundary has been inferred or manually drawn.</p></div></section>;
+}
