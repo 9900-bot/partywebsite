@@ -6,6 +6,8 @@ export interface Party {
   name: string;
   abbreviation: string;
   color: string;
+  seats?: number;
+  colorSource?: string;
 }
 
 export interface StateRegion {
@@ -36,6 +38,7 @@ export interface Constituency {
   stateId: string;
   districtId: string;
   constituencyNumber: number;
+  reservation?: string;
   bounds: Bounds;
   polygon?: Position[][];
 }
@@ -45,9 +48,11 @@ export interface MLA {
   name: string;
   constituencyId: string;
   partyId: string;
-  currentTermStart: number;
-  consecutiveWins: number;
-  totalWins: number;
+  currentTermStart?: number;
+  consecutiveWins?: number;
+  totalWins?: number;
+  remarks?: string | null;
+  sourceUrl?: string;
 }
 
 export interface ElectionCandidateResult {

@@ -1,6 +1,7 @@
 node_modules/
 .next/
 out/
+.artifact-work/
 .env*
 !.env.example
 *.tsbuildinfo

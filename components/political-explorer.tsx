@@ -3,16 +3,25 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as maplibregl from "maplibre-gl";
 import type { Feature, FeatureCollection, Geometry } from "geojson";
-import { partyById } from "@/data/parties";
+import { parties as fallbackParties } from "@/data/parties";
 import { politicalDataSource } from "@/lib/political-data-source";
-import type { Bounds, Constituency, District, ElectionResult, MLA, StateRegion } from "@/types/political";
+import type { Bounds, Constituency, District, MLA, Party, StateRegion } from "@/types/political";
 
-type Catalog = { states: StateRegion[]; districts: District[]; constituencies: Constituency[]; representatives: MLA[] };
+type Catalog = { states: StateRegion[]; districts: District[]; constituencies: Constituency[]; representatives: MLA[]; parties: Party[] };
 type BoundaryCollections = Record<string, { districts: FeatureCollection; constituencies: FeatureCollection }>;
 type BoundaryCatalogFile = {
   states: Array<{ id: string; bounds: Bounds; districtCount: number; constituencyCount: number }>;
   districts: District[];
   constituencies: Constituency[];
+};
+type KarnatakaAssemblyFile = {
+  source: { mainUrl: string; mainPageRevisionId: number; mainPageModifiedAt: string; transcludedMembersTableUrl: string; scope: string; attribution: string };
+  assembly: { name: string; term: string; termPeriod: string; totalSeats: number; electionDate: string; votingSystem: string };
+  validation: { extractedConstituencyCount: number; passedSeatNumberValidation: boolean; ambiguousEntries: Array<{ acNumber?: number; constituency?: string; issue: string }> };
+  workbookUrl: string;
+  generatedFromWorkbook: boolean;
+  parties: Array<{ id: string; abbreviation: string; name: string; seats: number; color: string; colorSource: string }>;
+  constituencies: Array<{ acNumber: number; constituency: string; reservation: string; district: string; currentMember: string | null; partyId: string; partyName: string; partyColor: string; remarks: string | null; constituencySourceUrl: string; tableSourceUrl: string; historicalEntries: string }>;
 };
 type SearchResult = { id: string; title: string; subtitle: string; kind: "state" | "district" | "constituency" | "mla"; constituencyId?: string };
 type MapTarget = { kind: "state" | "district" | "constituency"; id: string };
@@ -20,7 +29,7 @@ type MapTarget = { kind: "state" | "district" | "constituency"; id: string };
 const INDIA_BOUNDS: Bounds = [[67.2, 6.2], [97.6, 37.6]];
 const emptyCollection: FeatureCollection = { type: "FeatureCollection", features: [] };
 
-function withPoliticalOverlay(collection: FeatureCollection, representatives: MLA[]): FeatureCollection {
+function withPoliticalOverlay(collection: FeatureCollection, representatives: MLA[], partiesById: Record<string, Party>): FeatureCollection {
   const representativeBySeat = new Map(representatives.map((record) => [record.constituencyId, record]));
   return {
     ...collection,
@@ -29,7 +38,7 @@ function withPoliticalOverlay(collection: FeatureCollection, representatives: ML
       const representative = representativeBySeat.get(id);
       return {
         ...feature,
-        properties: { ...feature.properties, partyColor: representative ? partyById[representative.partyId]?.color : "#7d8f9e" },
+        properties: { ...feature.properties, partyColor: representative ? partiesById[representative.partyId]?.color : "#7d8f9e" },
       } as Feature<Geometry>;
     }),
   };
@@ -41,10 +50,6 @@ function fitMap(map: maplibregl.Map, bounds: Bounds, padding = 72) {
 
 function initials(name: string) {
   return name.split(" ").map((part) => part[0]).slice(0, 2).join("");
-}
-
-function formatNumber(value: number) {
-  return new Intl.NumberFormat("en-IN").format(value);
 }
 
 function Icon({ name }: { name: "search" | "home" | "back" | "people" | "vote" | "map" | "close" }) {
@@ -63,57 +68,82 @@ function Icon({ name }: { name: "search" | "home" | "back" | "people" | "vote" |
 export function PoliticalExplorer() {
   const mapNode = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
-  const catalogRef = useRef<Catalog>({ states: [], districts: [], constituencies: [], representatives: [] });
+  const catalogRef = useRef<Catalog>({ states: [], districts: [], constituencies: [], representatives: [], parties: fallbackParties });
+  const partyLookupRef = useRef<Record<string, Party>>(Object.fromEntries(fallbackParties.map((party) => [party.id, party])));
   const navigateRef = useRef<(target: MapTarget) => void>(() => undefined);
   const hoverRef = useRef<{ source: string; id: string | number } | null>(null);
 
-  const [catalog, setCatalog] = useState<Catalog>({ states: [], districts: [], constituencies: [], representatives: [] });
+  const [catalog, setCatalog] = useState<Catalog>({ states: [], districts: [], constituencies: [], representatives: [], parties: fallbackParties });
   const [boundaries, setBoundaries] = useState<BoundaryCollections>({});
   const [isLoading, setIsLoading] = useState(true);
   const [mapReady, setMapReady] = useState(false);
   const [selectedStateId, setSelectedStateId] = useState<string | null>(null);
   const [selectedDistrictId, setSelectedDistrictId] = useState<string | null>(null);
   const [selectedConstituencyId, setSelectedConstituencyId] = useState<string | null>(null);
-  const [history, setHistory] = useState<ElectionResult[]>([]);
   const [query, setQuery] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
   const [hoverLabel, setHoverLabel] = useState<{ title: string; subtitle: string }>({ title: "India", subtitle: "Choose a state to explore" });
   const [hoveredParty, setHoveredParty] = useState<string | null>(null);
+  const [assemblyData, setAssemblyData] = useState<KarnatakaAssemblyFile | null>(null);
+  const [assemblyDirectoryOpen, setAssemblyDirectoryOpen] = useState(false);
 
   const selectedState = catalog.states.find((item) => item.id === selectedStateId) ?? null;
   const selectedDistrict = catalog.districts.find((item) => item.id === selectedDistrictId) ?? null;
   const selectedConstituency = catalog.constituencies.find((item) => item.id === selectedConstituencyId) ?? null;
   const selectedRepresentative = catalog.representatives.find((item) => item.constituencyId === selectedConstituencyId) ?? null;
+  const partiesById = useMemo<Record<string, Party>>(() => Object.fromEntries(catalog.parties.map((party) => [party.id, party])), [catalog.parties]);
   const stateDistricts = useMemo(() => catalog.districts.filter((item) => item.stateId === selectedStateId), [catalog.districts, selectedStateId]);
   const districtConstituencies = useMemo(() => catalog.constituencies.filter((item) => item.districtId === selectedDistrictId), [catalog.constituencies, selectedDistrictId]);
 
   useEffect(() => {
     let active = true;
     async function loadCatalog() {
-      const [politicalStates, boundaryCatalog, karnatakaDistricts, karnatakaConstituencies, telanganaDistricts, telanganaConstituencies] = await Promise.all([
+      const [politicalStates, boundaryCatalog, karnatakaAssembly, karnatakaDistricts, karnatakaConstituencies, telanganaDistricts, telanganaConstituencies] = await Promise.all([
         politicalDataSource.getStates(),
         fetch("/boundaries/catalog.json").then((response) => response.json()) as Promise<BoundaryCatalogFile>,
+        fetch("/data/karnataka-assembly.json").then((response) => response.json()) as Promise<KarnatakaAssemblyFile>,
         fetch("/boundaries/karnataka-districts.geojson").then((response) => response.json()) as Promise<FeatureCollection>,
         fetch("/boundaries/karnataka-constituencies.geojson").then((response) => response.json()) as Promise<FeatureCollection>,
         fetch("/boundaries/telangana-districts.geojson").then((response) => response.json()) as Promise<FeatureCollection>,
         fetch("/boundaries/telangana-constituencies.geojson").then((response) => response.json()) as Promise<FeatureCollection>,
       ]);
       const geographyByState = new Map(boundaryCatalog.states.map((state) => [state.id, state]));
+      const statePartySeats = Object.fromEntries(karnatakaAssembly.parties.map((party) => [party.id, party.seats]));
       const states = politicalStates.map((state) => {
         const geography = geographyByState.get(state.id);
-        return geography ? { ...state, bounds: geography.bounds, districtCount: geography.districtCount, constituencyCount: geography.constituencyCount } : state;
+        const partySeats = state.id === "ka" ? statePartySeats : {};
+        return geography ? { ...state, partySeats, bounds: geography.bounds, districtCount: geography.districtCount, constituencyCount: geography.constituencyCount } : { ...state, partySeats };
       });
       const districts = boundaryCatalog.districts;
-      const constituencies = boundaryCatalog.constituencies;
-      const representatives = (await Promise.all(constituencies.map((item) => politicalDataSource.getMLA(item.id)))).filter((item): item is MLA => Boolean(item));
+      const wikipediaSeatByNumber = new Map(karnatakaAssembly.constituencies.map((item) => [item.acNumber, item]));
+      const constituencies = boundaryCatalog.constituencies.map((item) => {
+        const wikipediaSeat = item.stateId === "ka" ? wikipediaSeatByNumber.get(item.constituencyNumber) : undefined;
+        return wikipediaSeat ? { ...item, name: wikipediaSeat.constituency, reservation: wikipediaSeat.reservation } : item;
+      });
+      const representatives = constituencies.flatMap((constituency) => {
+        if (constituency.stateId !== "ka") return [];
+        const wikipediaSeat = wikipediaSeatByNumber.get(constituency.constituencyNumber);
+        if (!wikipediaSeat?.currentMember || wikipediaSeat.partyId === "VAC") return [];
+        return [{
+          id: `wiki-ka-${constituency.constituencyNumber}`,
+          name: wikipediaSeat.currentMember,
+          constituencyId: constituency.id,
+          partyId: wikipediaSeat.partyId,
+          remarks: wikipediaSeat.remarks,
+          sourceUrl: wikipediaSeat.constituencySourceUrl,
+        } satisfies MLA];
+      });
+      const parties: Party[] = karnatakaAssembly.parties.map((party) => ({ ...party }));
       if (active) {
-        const next = { states, districts, constituencies, representatives };
+        const next = { states, districts, constituencies, representatives, parties };
         const nextBoundaries = {
           ka: { districts: karnatakaDistricts, constituencies: karnatakaConstituencies },
           tg: { districts: telanganaDistricts, constituencies: telanganaConstituencies },
         };
         catalogRef.current = next;
+        partyLookupRef.current = Object.fromEntries(parties.map((party) => [party.id, party]));
         setCatalog(next);
+        setAssemblyData(karnatakaAssembly);
         setBoundaries(nextBoundaries);
         setIsLoading(false);
       }
@@ -123,27 +153,28 @@ export function PoliticalExplorer() {
   }, []);
 
   const navigateToState = (state: StateRegion) => {
+    setAssemblyDirectoryOpen(false);
     setSelectedStateId(state.id);
     setSelectedDistrictId(null);
     setSelectedConstituencyId(null);
-    setHistory([]);
     setHoverLabel({ title: state.name, subtitle: `${state.constituencyCount} Assembly constituencies` });
   };
 
   const navigateToDistrict = (district: District) => {
+    setAssemblyDirectoryOpen(false);
     setSelectedStateId(district.stateId);
     setSelectedDistrictId(district.id);
     setSelectedConstituencyId(null);
-    setHistory([]);
     setHoverLabel({ title: district.name, subtitle: `${district.constituencyCount} constituencies` });
   };
 
   const navigateToConstituency = (constituency: Constituency) => {
+    setAssemblyDirectoryOpen(false);
     setSelectedStateId(constituency.stateId);
     setSelectedDistrictId(constituency.districtId);
     setSelectedConstituencyId(constituency.id);
     const rep = catalogRef.current.representatives.find((item) => item.constituencyId === constituency.id);
-    setHoverLabel({ title: constituency.name, subtitle: rep ? `${rep.name} · ${partyById[rep.partyId]?.abbreviation}` : "Representative details" });
+    setHoverLabel({ title: constituency.name, subtitle: rep ? `${rep.name} · ${partyLookupRef.current[rep.partyId]?.abbreviation}` : "Boundary and seat record" });
   };
 
   navigateRef.current = (target) => {
@@ -160,13 +191,6 @@ export function PoliticalExplorer() {
   };
 
   useEffect(() => {
-    if (!selectedConstituencyId) return;
-    let active = true;
-    politicalDataSource.getElectionHistory(selectedConstituencyId).then((records) => { if (active) setHistory(records); });
-    return () => { active = false; };
-  }, [selectedConstituencyId]);
-
-  useEffect(() => {
     if (!mapNode.current) return;
     maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
     const map = new maplibregl.Map({
@@ -181,7 +205,7 @@ export function PoliticalExplorer() {
     });
     mapRef.current = map;
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
-    map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: "Boundaries: LGD / BharatMaps · Political data: illustrative" }), "bottom-right");
+    map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: "Boundaries: LGD / BharatMaps · Political data: Wikipedia / Excel" }), "bottom-right");
 
     map.on("load", async () => {
       const response = await fetch("/india-states.geojson");
@@ -217,7 +241,7 @@ export function PoliticalExplorer() {
       const name = String(feature.properties?.name ?? "Region");
       if (kind === "constituency") {
         const rep = catalogRef.current.representatives.find((item) => item.constituencyId === id);
-        setHoverLabel({ title: name, subtitle: rep ? `${rep.name} · ${partyById[rep.partyId]?.abbreviation}` : "Assembly constituency" });
+        setHoverLabel({ title: name, subtitle: rep ? `${rep.name} · ${partyLookupRef.current[rep.partyId]?.abbreviation}` : "Assembly constituency" });
       } else if (kind === "district") {
         const district = catalogRef.current.districts.find((item) => item.id === id);
         setHoverLabel({ title: name, subtitle: district ? `${district.constituencyCount} constituencies` : "District" });
@@ -278,12 +302,12 @@ export function PoliticalExplorer() {
       type: "FeatureCollection",
       features: stateCollection.features.filter((feature) => String(feature.properties?.districtId) === selectedDistrict.id),
     };
-    source.setData(withPoliticalOverlay(districtCollection, catalog.representatives));
+    source.setData(withPoliticalOverlay(districtCollection, catalog.representatives, partiesById));
     map.setLayoutProperty("constituency-fill", "visibility", "visible");
     map.setLayoutProperty("constituency-line", "visibility", "visible");
     map.setPaintProperty("district-fill", "fill-opacity", ["case", ["==", ["get", "id"], selectedDistrict.id], .45, .12]);
     fitMap(map, selectedDistrict.bounds, 96);
-  }, [mapReady, selectedDistrict, districtConstituencies, catalog.representatives, boundaries]);
+  }, [mapReady, selectedDistrict, districtConstituencies, catalog.representatives, boundaries, partiesById]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -294,11 +318,13 @@ export function PoliticalExplorer() {
   }, [mapReady, selectedConstituency]);
 
   const resetIndia = () => {
-    setSelectedStateId(null); setSelectedDistrictId(null); setSelectedConstituencyId(null); setHistory([]);
+    setAssemblyDirectoryOpen(false);
+    setSelectedStateId(null); setSelectedDistrictId(null); setSelectedConstituencyId(null);
     setHoverLabel({ title: "India", subtitle: "Choose a state to explore" });
   };
 
   const goBack = () => {
+    if (assemblyDirectoryOpen) { setAssemblyDirectoryOpen(false); return; }
     if (selectedConstituency && selectedDistrict) navigateToDistrict(selectedDistrict);
     else if (selectedDistrict && selectedState) navigateToState(selectedState);
     else resetIndia();
@@ -331,7 +357,7 @@ export function PoliticalExplorer() {
           {query && <button className="search-clear" type="button" onClick={() => setQuery("")} aria-label="Clear search"><Icon name="close" /></button>}
           {searchOpen && query.length >= 2 && <div className="search-results" role="listbox">{searchResults.length ? searchResults.map((result) => <button key={`${result.kind}-${result.id}`} type="button" onClick={() => chooseSearchResult(result)}><span><strong>{result.title}</strong><small>{result.subtitle}</small></span><em>{result.kind === "mla" ? "MLA" : result.kind[0].toUpperCase()}</em></button>) : <div className="search-empty">No mapped region matches “{query}”.</div>}</div>}
         </div>
-        <span className="demo-pill">Verified boundaries</span>
+        <span className="demo-pill">Excel-linked data</span>
       </header>
 
       <main className="workspace">
@@ -339,14 +365,14 @@ export function PoliticalExplorer() {
           <div ref={mapNode} className="map-canvas" />
           {!mapReady && <div className="map-loader"><span /><strong>Drawing the map</strong></div>}
           <div className="map-overlay-top">
-            <div className="map-nav">{selectedState && <button type="button" className="back-button" onClick={goBack} aria-label="Go back one level"><Icon name="back" /></button>}<nav className="breadcrumbs" aria-label="Current map level"><button type="button" onClick={resetIndia}>India</button>{selectedState && <><b>/</b><button type="button" onClick={() => navigateToState(selectedState)}>{selectedState.name}</button></>}{selectedDistrict && <><b>/</b><button type="button" onClick={() => navigateToDistrict(selectedDistrict)}>{selectedDistrict.name}</button></>}{selectedConstituency && <><b>/</b><span>{selectedConstituency.name}</span></>}</nav></div>
+            <div className="map-nav">{selectedState && <button type="button" className="back-button" onClick={goBack} aria-label="Go back one level"><Icon name="back" /></button>}<nav className="breadcrumbs" aria-label="Current map level"><button type="button" onClick={resetIndia}>India</button>{selectedState && <><b>/</b><button type="button" onClick={() => navigateToState(selectedState)}>{selectedState.name}</button></>}{assemblyDirectoryOpen && <><b>/</b><span>All 224 seats</span></>}{!assemblyDirectoryOpen && selectedDistrict && <><b>/</b><button type="button" onClick={() => navigateToDistrict(selectedDistrict)}>{selectedDistrict.name}</button></>}{!assemblyDirectoryOpen && selectedConstituency && <><b>/</b><span>{selectedConstituency.name}</span></>}</nav></div>
             <button type="button" className="reset-button" onClick={resetIndia}><Icon name="home" /><span>India view</span></button>
           </div>
           <div className="map-status" aria-live="polite"><small>{selectedConstituency ? "Constituency" : selectedDistrict ? "District" : selectedState ? "State" : "Map focus"}</small><strong>{hoverLabel.title}</strong><span>{hoverLabel.subtitle}</span></div>
         </section>
 
-        <aside className={`info-panel ${selectedConstituency ? "detail-panel" : ""}`} aria-live="polite">
-          {isLoading ? <PanelSkeleton /> : selectedConstituency && selectedState && selectedDistrict ? <ConstituencyPanel constituency={selectedConstituency} district={selectedDistrict} state={selectedState} representative={selectedRepresentative} history={history} /> : selectedDistrict && selectedState ? <DistrictPanel district={selectedDistrict} state={selectedState} constituencies={districtConstituencies} representatives={catalog.representatives} onSelect={navigateToConstituency} /> : selectedState ? <StatePanel state={selectedState} districts={stateDistricts} onSelect={navigateToDistrict} hoveredParty={hoveredParty} setHoveredParty={setHoveredParty} /> : <OverviewPanel states={catalog.states} onSelect={navigateToState} />}
+        <aside className={`info-panel ${(selectedConstituency || assemblyDirectoryOpen) ? "detail-panel" : ""}`} aria-live="polite">
+          {isLoading ? <PanelSkeleton /> : assemblyDirectoryOpen && assemblyData ? <AssemblyDirectoryPanel data={assemblyData} constituencies={catalog.constituencies} onClose={() => setAssemblyDirectoryOpen(false)} onSelect={navigateToConstituency} /> : selectedConstituency && selectedState && selectedDistrict ? <ConstituencyPanel constituency={selectedConstituency} district={selectedDistrict} state={selectedState} representative={selectedRepresentative} partiesById={partiesById} assemblySeat={assemblyData?.constituencies.find((seat) => seat.acNumber === selectedConstituency.constituencyNumber) ?? null} /> : selectedDistrict && selectedState ? <DistrictPanel district={selectedDistrict} state={selectedState} constituencies={districtConstituencies} representatives={catalog.representatives} partiesById={partiesById} onSelect={navigateToConstituency} /> : selectedState ? <StatePanel state={selectedState} districts={stateDistricts} partiesById={partiesById} onSelect={navigateToDistrict} hoveredParty={hoveredParty} setHoveredParty={setHoveredParty} onOpenDirectory={selectedState.id === "ka" && assemblyData ? () => setAssemblyDirectoryOpen(true) : undefined} /> : <OverviewPanel states={catalog.states} onSelect={navigateToState} />}
         </aside>
       </main>
     </div></div>
@@ -357,24 +383,40 @@ function OverviewPanel({ states, onSelect }: { states: StateRegion[]; onSelect: 
   return <><div className="panel-scroll"><div className="kicker">National overview</div><h1 className="panel-title">India</h1><p className="panel-copy">Follow the map from a state to its real district and Assembly constituency boundaries.</p><div className="metric-grid"><div className="metric"><strong>64</strong><span>Mapped districts</span></div><div className="metric"><strong>343</strong><span>Mapped constituencies</span></div></div><div className="section-rule" /><h2 className="mini-heading">Begin with a state</h2><div className="state-list">{states.map((state) => <button className="state-button" type="button" key={state.id} onClick={() => onSelect(state)}><span><strong>{state.name}</strong><small>{state.demoCoverage === "complete" ? `${state.districtCount} verified districts` : "Overview only"}</small></span><em>{state.constituencyCount}</em></button>)}</div></div><DemoNote /> </>;
 }
 
-function StatePanel({ state, districts, onSelect, hoveredParty, setHoveredParty }: { state: StateRegion; districts: District[]; onSelect: (district: District) => void; hoveredParty: string | null; setHoveredParty: (id: string | null) => void }) {
+function StatePanel({ state, districts, partiesById, onSelect, hoveredParty, setHoveredParty, onOpenDirectory }: { state: StateRegion; districts: District[]; partiesById: Record<string, Party>; onSelect: (district: District) => void; hoveredParty: string | null; setHoveredParty: (id: string | null) => void; onOpenDirectory?: () => void }) {
   const composition = Object.entries(state.partySeats).sort((a, b) => b[1] - a[1]);
-  return <><div className="panel-scroll"><div className="kicker">State overview</div><h1 className="panel-title">{state.name}</h1><div className="metric-grid three"><div className="metric"><strong>{state.constituencyCount}</strong><span>Constituencies</span></div><div className="metric"><strong>{state.districtCount}</strong><span>Districts</span></div><div className="metric"><strong>{composition.length || "—"}</strong><span>Parties shown</span></div></div>{state.demoCoverage === "overview" ? <div className="empty-card"><Icon name="map" /><h2>Overview only</h2><p>Complete district and Assembly maps are available for Karnataka and Telangana.</p></div> : <><section className="panel-section"><div className="section-heading"><div><span>Party representation</span><h2>Assembly composition</h2></div><small>{state.constituencyCount} seats</small></div><div className="assembly-dots" aria-label={`Sample assembly composition for ${state.name}`}>{composition.flatMap(([partyId, count]) => Array.from({ length: count }, (_, index) => <span key={`${partyId}-${index}`} style={{ backgroundColor: partyById[partyId]?.color }} className={hoveredParty && hoveredParty !== partyId ? "muted-dot" : ""} title={`${partyById[partyId]?.abbreviation} seat`} />))}</div><div className="party-list">{composition.map(([partyId, count]) => { const party = partyById[partyId]; return <button key={partyId} type="button" onMouseEnter={() => setHoveredParty(partyId)} onMouseLeave={() => setHoveredParty(null)} onFocus={() => setHoveredParty(partyId)} onBlur={() => setHoveredParty(null)}><i style={{ backgroundColor: party.color }} /><span><strong>{party.abbreviation}</strong><small>{party.name}</small></span><em>{count}</em></button>; })}</div></section><section className="panel-section"><div className="section-heading"><div><span>LGD geography</span><h2>Choose a district</h2></div><small>{districts.length} mapped</small></div><div className="district-list">{districts.map((district) => <button type="button" key={district.id} onClick={() => onSelect(district)}><span><strong>{district.name}</strong><small>{district.constituencyCount} constituencies</small></span><b>View</b></button>)}</div></section></>}</div><DemoNote /></>;
+  return <><div className="panel-scroll"><div className="kicker">State overview</div><h1 className="panel-title">{state.name}</h1><div className="metric-grid three"><div className="metric"><strong>{state.constituencyCount}</strong><span>Constituencies</span></div><div className="metric"><strong>{state.districtCount}</strong><span>Districts</span></div><div className="metric"><strong>{composition.length || "—"}</strong><span>Parties shown</span></div></div>{onOpenDirectory && <button className="assembly-directory-cta" type="button" onClick={onOpenDirectory}><span><small>Complete Excel-backed directory</small><strong>Browse all 224 Assembly seats</strong></span><b>Open →</b></button>}{state.demoCoverage === "overview" ? <div className="empty-card"><Icon name="map" /><h2>Overview only</h2><p>Complete district and Assembly maps are available for Karnataka and Telangana.</p></div> : <>{composition.length ? <section className="panel-section"><div className="section-heading"><div><span>Wikipedia data</span><h2>Assembly composition</h2></div><small>{state.constituencyCount} seats</small></div><div className="assembly-dots" aria-label={`Current assembly composition for ${state.name}`}>{composition.flatMap(([partyId, count]) => Array.from({ length: count }, (_, index) => <span key={`${partyId}-${index}`} style={{ backgroundColor: partiesById[partyId]?.color }} className={hoveredParty && hoveredParty !== partyId ? "muted-dot" : ""} title={`${partiesById[partyId]?.abbreviation ?? partyId} seat`} />))}</div><div className="party-list">{composition.map(([partyId, count]) => { const party = partiesById[partyId]; if (!party) return null; return <button key={partyId} type="button" onMouseEnter={() => setHoveredParty(partyId)} onMouseLeave={() => setHoveredParty(null)} onFocus={() => setHoveredParty(partyId)} onBlur={() => setHoveredParty(null)}><i style={{ backgroundColor: party.color }} /><span><strong>{party.abbreviation}</strong><small>{party.name}</small></span><em>{count}</em></button>; })}</div></section> : <div className="empty-card"><Icon name="people" /><h2>Political workbook not attached</h2><p>The geographic map is complete. This pass connects verified political records for Karnataka only.</p></div>}<section className="panel-section"><div className="section-heading"><div><span>LGD geography</span><h2>Choose a district</h2></div><small>{districts.length} mapped</small></div><div className="district-list">{districts.map((district) => <button type="button" key={district.id} onClick={() => onSelect(district)}><span><strong>{district.name}</strong><small>{district.constituencyCount} constituencies</small></span><b>View</b></button>)}</div></section></>}</div><DemoNote /></>;
 }
 
-function DistrictPanel({ district, state, constituencies, representatives, onSelect }: { district: District; state: StateRegion; constituencies: Constituency[]; representatives: MLA[]; onSelect: (item: Constituency) => void }) {
-  return <><div className="panel-scroll"><div className="kicker">District · {state.name}</div><h1 className="panel-title">{district.name}</h1><p className="panel-copy">Select an Assembly constituency to inspect its exact mapped boundary.</p><div className="section-rule" /><div className="section-heading"><div><span>Assembly areas</span><h2>Constituencies</h2></div><small>{constituencies.length} mapped</small></div><div className="constituency-list">{constituencies.map((item) => { const rep = representatives.find((record) => record.constituencyId === item.id); const party = rep ? partyById[rep.partyId] : null; return <button type="button" key={item.id} onClick={() => onSelect(item)}><span className="constituency-number">AC {item.constituencyNumber}</span><strong>{item.name}</strong>{rep && party ? <span className="rep-line"><i style={{ backgroundColor: party.color }} />{rep.name}<em>{party.abbreviation}</em></span> : <small>Boundary record available</small>}</button>; })}</div></div><DemoNote /></>;
+function DistrictPanel({ district, state, constituencies, representatives, partiesById, onSelect }: { district: District; state: StateRegion; constituencies: Constituency[]; representatives: MLA[]; partiesById: Record<string, Party>; onSelect: (item: Constituency) => void }) {
+  return <><div className="panel-scroll"><div className="kicker">District · {state.name}</div><h1 className="panel-title">{district.name}</h1><p className="panel-copy">Select an Assembly constituency to inspect its exact mapped boundary and current member record.</p><div className="section-rule" /><div className="section-heading"><div><span>Assembly areas</span><h2>Constituencies</h2></div><small>{constituencies.length} mapped</small></div><div className="constituency-list">{constituencies.map((item) => { const rep = representatives.find((record) => record.constituencyId === item.id); const party = rep ? partiesById[rep.partyId] : null; return <button type="button" key={item.id} onClick={() => onSelect(item)}><span className="constituency-number">AC {item.constituencyNumber}{item.reservation && item.reservation !== "GEN" ? ` · ${item.reservation}` : ""}</span><strong>{item.name}</strong>{rep && party ? <span className="rep-line"><i style={{ backgroundColor: party.color }} />{rep.name}<em>{party.abbreviation}</em></span> : <small>{state.id === "ka" ? "Vacant or source discrepancy" : "Boundary record available"}</small>}</button>; })}</div></div><DemoNote /></>;
 }
 
-function ConstituencyPanel({ constituency, district, state, representative, history }: { constituency: Constituency; district: District; state: StateRegion; representative: MLA | null; history: ElectionResult[] }) {
-  const [expanded, setExpanded] = useState(false);
-  const party = representative ? partyById[representative.partyId] : null;
-  const latest = history.at(-1);
-  const latestWinner = latest?.candidates.find((candidate) => candidate.position === 1);
-  useEffect(() => setExpanded(false), [constituency.id]);
-  return <><div className="panel-scroll"><div className="kicker">Assembly constituency · AC {constituency.constituencyNumber}</div><h1 className="panel-title constituency-title">{constituency.name}</h1><p className="location-line">{district.name}<span>•</span>{state.name}</p>{representative && party ? <><section className="mla-card"><div className="profile-avatar" style={{ backgroundColor: `${party.color}22`, color: party.color }}>{initials(representative.name)}</div><div><span>Sample MLA</span><h2>{representative.name}</h2><p><i style={{ backgroundColor: party.color }} />{party.name}</p></div></section><div className="stat-strip"><div><Icon name="people" /><strong>{representative.currentTermStart}</strong><span>MLA since</span></div><div><Icon name="vote" /><strong>{representative.consecutiveWins}</strong><span>Consecutive wins</span></div><div><Icon name="map" /><strong>{latestWinner?.votePercentage ?? "—"}{latestWinner ? "%" : ""}</strong><span>{latest?.year ?? "Latest"} vote share</span></div><div><Icon name="vote" /><strong>{latest ? formatNumber(latest.winningMargin) : "—"}</strong><span>Winning margin</span></div></div><section className="panel-section timeline-section"><div className="section-heading"><div><span>Election history</span><h2>Winning timeline</h2></div></div><div className="timeline">{history.map((election) => { const winner = election.candidates.find((candidate) => candidate.position === 1); const winnerParty = winner ? partyById[winner.partyId] : null; return <div key={election.year}><span>{election.year}</span><i style={{ backgroundColor: winnerParty?.color }} /><strong>{winnerParty?.abbreviation}</strong></div>; })}</div></section><section className="panel-section"><div className="section-heading"><div><span>Latest result</span><h2>{latest?.year ?? "—"} election</h2></div>{latest && <small>Margin {formatNumber(latest.winningMargin)}</small>}</div><div className="result-bars">{latest?.candidates.slice(0, expanded ? undefined : 2).map((candidate) => { const candidateParty = partyById[candidate.partyId]; return <div key={candidate.candidateId} className="result-row"><div><span><strong>{candidate.candidateName}</strong><small>{candidateParty?.abbreviation}</small></span><em>{candidate.votePercentage}%</em></div><span className="bar-track"><i style={{ width: `${candidate.votePercentage}%`, backgroundColor: candidateParty?.color }} /></span><small>{formatNumber(candidate.votes)} votes</small></div>; })}</div>{latest && latest.candidates.length > 2 && <button type="button" className="expand-button" onClick={() => setExpanded((value) => !value)}>{expanded ? "Show leading candidates" : `Show all ${latest.candidates.length} entries`}</button>}</section></> : <div className="empty-card"><Icon name="map" /><h2>Boundary mapped</h2><p>This constituency is part of the complete geographic dataset. Representative and election details have not been added to the illustrative political sample.</p></div>}</div><DemoNote /></>;
+function AssemblyDirectoryPanel({ data, constituencies, onClose, onSelect }: { data: KarnatakaAssemblyFile; constituencies: Constituency[]; onClose: () => void; onSelect: (item: Constituency) => void }) {
+  const [term, setTerm] = useState("");
+  const [partyFilter, setPartyFilter] = useState("ALL");
+  const visibleSeats = useMemo(() => {
+    const needle = term.trim().toLowerCase();
+    return data.constituencies.filter((seat) => {
+      const matchesParty = partyFilter === "ALL" || seat.partyId === partyFilter;
+      const haystack = `${seat.acNumber} ${seat.constituency} ${seat.district} ${seat.currentMember ?? "vacant"} ${seat.partyName} ${seat.reservation} ${seat.remarks ?? ""}`.toLowerCase();
+      return matchesParty && (!needle || haystack.includes(needle));
+    });
+  }, [data.constituencies, partyFilter, term]);
+  const memberCount = data.constituencies.filter((seat) => seat.currentMember).length;
+  const vacancyCount = data.constituencies.length - memberCount;
+  const openSeat = (seat: KarnatakaAssemblyFile["constituencies"][number]) => {
+    const mapped = constituencies.find((item) => item.stateId === "ka" && item.constituencyNumber === seat.acNumber);
+    if (mapped) onSelect(mapped);
+  };
+  return <><div className="panel-scroll assembly-directory"><div className="directory-heading"><div><div className="kicker">Complete Karnataka dataset</div><h1 className="panel-title">All Assembly seats</h1></div><button type="button" onClick={onClose} aria-label="Close Assembly directory"><Icon name="close" /></button></div><p className="panel-copy">Every constituency, district, reservation, current member, party, color and source note from the attached workbook.</p><div className="metric-grid three"><div className="metric"><strong>{data.constituencies.length}</strong><span>Total seats</span></div><div className="metric"><strong>{memberCount}</strong><span>Current members</span></div><div className="metric"><strong>{vacancyCount}</strong><span>Vacancies</span></div></div><div className="directory-controls"><label><Icon name="search" /><input value={term} onChange={(event) => setTerm(event.target.value)} placeholder="Search seat, district, MLA or party" aria-label="Search all Karnataka Assembly seats" /></label><div className="party-filters" aria-label="Filter by party"><button type="button" className={partyFilter === "ALL" ? "active" : ""} onClick={() => setPartyFilter("ALL")}>All</button>{data.parties.map((party) => <button type="button" key={party.id} className={partyFilter === party.id ? "active" : ""} onClick={() => setPartyFilter(party.id)}><i style={{ backgroundColor: party.color }} />{party.abbreviation}<span>{party.seats}</span></button>)}</div></div><div className="directory-count"><strong>{visibleSeats.length}</strong> records shown <span>·</span> source revised {new Date(data.source.mainPageModifiedAt).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" })}</div><div className="seat-directory-list">{visibleSeats.map((seat) => <button type="button" key={seat.acNumber} onClick={() => openSeat(seat)}><span className="seat-ac">AC {seat.acNumber}</span><span className="seat-main"><strong>{seat.constituency}</strong><small>{seat.district} · {seat.reservation || "GEN"}</small><em>{seat.currentMember ?? "Vacant"}</em></span><span className="seat-party"><i style={{ backgroundColor: seat.partyColor }} />{seat.partyId === "JDS" ? "JD(S)" : seat.partyId}</span></button>)}</div>{!visibleSeats.length && <div className="directory-empty">No seats match this search and party filter.</div>}<section className="directory-provenance"><span>Source & validation</span><p>{data.assembly.term} · {data.assembly.termPeriod} · {data.assembly.votingSystem}. Seat-number validation: {data.validation.passedSeatNumberValidation ? "passed" : "review required"}.</p><a href={data.source.mainUrl} target="_blank" rel="noreferrer">Open Wikipedia source</a><a href={data.workbookUrl} download>Download complete Excel workbook</a></section></div></>;
 }
 
-function DemoNote() { return <p className="sample-note"><strong>Data note</strong><span>Boundaries: LGD/BharatMaps 2023 release. Parties, representatives and results remain illustrative.</span></p>; }
+function ConstituencyPanel({ constituency, district, state, representative, partiesById, assemblySeat }: { constituency: Constituency; district: District; state: StateRegion; representative: MLA | null; partiesById: Record<string, Party>; assemblySeat: KarnatakaAssemblyFile["constituencies"][number] | null }) {
+  const party = representative ? partiesById[representative.partyId] : null;
+  return <><div className="panel-scroll"><div className="kicker">Assembly constituency · AC {constituency.constituencyNumber}</div><h1 className="panel-title constituency-title">{constituency.name}</h1><p className="location-line">{district.name}<span>•</span>{state.name}</p>{representative && party ? <><section className="mla-card"><div className="profile-avatar" style={{ backgroundColor: `${party.color}22`, color: party.color }}>{initials(representative.name)}</div><div><span>Current member</span><h2>{representative.name}</h2><p><i style={{ backgroundColor: party.color }} />{party.name}</p></div></section><div className="stat-strip"><div><Icon name="vote" /><strong>AC {constituency.constituencyNumber}</strong><span>Constituency number</span></div><div><Icon name="people" /><strong>{constituency.reservation ?? "GEN"}</strong><span>Reservation</span></div><div><Icon name="map" /><strong>{party.abbreviation}</strong><span>Current party</span></div><div><Icon name="vote" /><strong>16th</strong><span>Karnataka Assembly</span></div></div>{representative.remarks && <section className="source-record"><span>Wikipedia note</span><p>{representative.remarks}</p></section>}{assemblySeat?.historicalEntries && <section className="source-record history-record"><span>Preserved source history</span><p>{assemblySeat.historicalEntries}</p></section>}{representative.sourceUrl && <a className="source-link" href={representative.sourceUrl} target="_blank" rel="noreferrer">Open constituency source</a>}</> : <><div className="empty-card"><Icon name="map" /><h2>{state.id === "ka" ? "Seat currently vacant" : "Boundary mapped"}</h2><p>{state.id === "ka" ? "The Excel-backed Wikipedia record marks this constituency as vacant or source-conflicted." : "Political records are not attached for this state yet."}</p></div>{assemblySeat?.remarks && <section className="source-record"><span>Wikipedia note</span><p>{assemblySeat.remarks}</p></section>}{assemblySeat?.historicalEntries && <section className="source-record history-record"><span>Preserved source history</span><p>{assemblySeat.historicalEntries}</p></section>}{assemblySeat?.constituencySourceUrl && <a className="source-link" href={assemblySeat.constituencySourceUrl} target="_blank" rel="noreferrer">Open constituency source</a>}</>}</div><DemoNote /></>;
+}
+
+function DemoNote() { return <p className="sample-note"><strong>Excel-backed</strong><span>Karnataka members and party colors come from the supplied Wikipedia page. Boundaries use LGD/BharatMaps.</span><a href="/data/karnataka-assembly-data.xlsx" download>Download workbook</a></p>; }
 
 function PanelSkeleton() { return <div className="panel-skeleton" aria-label="Loading political data"><span className="sk-line short"/><span className="sk-line title"/><span className="sk-line"/><div className="sk-grid"><span/><span/></div><span className="sk-line"/><span className="sk-line"/></div>; }
